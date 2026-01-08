@@ -1,11 +1,12 @@
 import './tresEnRaya.css';
+export const finDelJuego = 0;
 export const printTresEnRaya = () => {
   const tresEnRayaTable = document.querySelector(`#tresEnRayaTable`);
   tresEnRayaTable.innerHTML = "";
   const arrayTresEnRaya = [
     [[""], [""], [""]],
     [[""], [""], [""]],
-    [[``], [""], [""]]
+    [[""], [""], [""]]
   ];
   for (const fila of arrayTresEnRaya) {
     for (const columna of fila) {
@@ -34,13 +35,17 @@ export const printTresEnRaya = () => {
 };
 export function clickCasillaCheck(cell, player) { // Al hacer click se pone círculo o cruz
   console.log("Cell clicked!");
-  if (!(cell.classList.contains('cruz') || cell.classList.contains('circulo'))) {
+  if ((!(cell.classList.contains('cruz') || cell.classList.contains('circulo')))) {
     if (player === "1") {
       cell.classList = "cruz";
       player = "2";
     } else if (player === "2") {
       cell.classList = "circulo";
       player = "1";
+    }
+    else if (player === "fin") {
+      console.log(player);
+
     }
     // Comprobar si alguien ha ganado
     const arrayTresEnRayaCheck = document.querySelectorAll('#tresEnRayaTable > div');
@@ -53,16 +58,24 @@ export function clickCasillaCheck(cell, player) { // Al hacer click se pone cír
     ) {
       setTimeout(() => {
         alert("Ha ganado el Jugador 1");
+        //player = "fin";
+        finDelJuego = "fin";
+
         localStorage.setItem("ganadorTresEnRaya", "Jugador 1");
       }, 500);
+      return finDelJuego;
     }
     else if ((infoGanador[0] === "circulo" & infoGanador[1] === "circulo" & infoGanador[2] === 'circulo') || (infoGanador[3] === "circulo" & infoGanador[4] === "circulo" & infoGanador[5] === 'circulo') || (infoGanador[6] === "circulo" & infoGanador[7] === "circulo" & infoGanador[8] === 'circulo') || (infoGanador[0] === "circulo" & infoGanador[3] === "circulo" & infoGanador[6] === 'circulo') || (infoGanador[1] === "circulo" & infoGanador[4] === "circulo" & infoGanador[7] === 'circulo') || (infoGanador[2] === "circulo" & infoGanador[5] === "circulo" & infoGanador[8] === 'circulo') || (infoGanador[0] === "circulo" & infoGanador[4] === "circulo" & infoGanador[8] === 'circulo') || (infoGanador[2] === "circulo" & infoGanador[4] === "circulo" & infoGanador[6] === 'circulo')
     ) {
       setTimeout(() => {
         alert("Ha ganado el Jugador 2");
+        //player = "fin";
+        finDelJuego = "fin";
         localStorage.setItem("ganadorTresEnRaya", "Jugador 2");
       }, 500);
+      return finDelJuego;
+
     }
   }
   return player;
-};
+}

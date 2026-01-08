@@ -1,4 +1,4 @@
-import { clickCasillaCheck, printTresEnRaya } from './games/tresEnRaya/tresEnRaya';
+import { clickCasillaCheck, finDelJuego, printTresEnRaya } from './games/tresEnRaya/tresEnRaya';
 import { crearEstructuraPpal } from './structure/structure';
 import './style.css';
 import { pintarMemory } from './games/memory/memory';
@@ -15,7 +15,9 @@ export function gameTresEnRaya() {
   const cells = document.querySelectorAll('.casilla');
   cells.forEach(cell => {
     cell.addEventListener('click', () => {
+      //if (player == 1 || player == 2) {
       player = clickCasillaCheck(cell, player);
+      //}
     });
   });
 };
@@ -40,7 +42,8 @@ returnToChangeTheGame();// Click para volver a la pantalla inicial y resetear la
 /* 
 En lugar de los alerts del sistema deberías manejar modales propios para interactuar con los usuarios.
 Tres en raya
-Una vez que gana un jugador, el juego no se detiene, si quedan casillas en blanco en el tablero, cada jugada (sea del jugador que sea), muestra nuevamente el mensae de victoria del jugador ganador. El tablero no se resetea al ganar uno de ellos. Tampoco hay un botón para volver a reiniciar la partida, solo el de volver al menú inicial para jugar otro juego.
+//Una vez que gana un jugador, el juego no se detiene, si quedan casillas en blanco en el tablero, cada jugada (sea del jugador que sea), muestra nuevamente el mensae de victoria del jugador ganador. 
+El tablero no se resetea al ganar uno de ellos. Tampoco hay un botón para volver a reiniciar la partida, solo el de volver al menú inicial para jugar otro juego.
 En el local storage se guarda solamente quien ganó la última vez, no se lleva estadística de las veces que ganó cada uno de los jugadores
 
 
@@ -56,4 +59,40 @@ Cuanto más jugadores escoja, más se extiende el tablero y el input del N° de 
 Memory
 En este caso si cambia qué jugador gana la última partida, pero no se guarda el record de cuántas partidas ganadas por cada jugador.
 Igual que los otros juegos, debo volver a la pantalla principal, porque no tengo como reiniciar el juego desde su propia pantalla
+
+
+Aspectos Positivos
+
+Me gusta que las imagenes del memory sean una búsqueda en Unsplash. Hubiese sido un punto extra que el jugador pudiese buscar con qué imágenes jugar.
+Muy bueno el notificar con un tooltip qué jugador está jugando al momento en el Memory
+
+
+Mejoras Opcionales
+
+El layout es sencillo pero funcional. Las imágenes de los juegos en la pantalla inicial deberían ser más nítidas.
+Debes dejar “respirar” un poco al código para hacerlo más legible: Dejar espacio entre funciones o elementos relacionados.
+ejemplo
+
+export function crearEstructuraPpal() {
+  let appInfo = document.querySelector('#app');
+  appInfo.innerHTML = "";
+  
+  const navGames = document.createElement("nav");
+  appInfo.append(navGames);
+  
+  const titleNavDiv = document.createElement("div");
+  titleNavDiv.id = "titleNavDiv";
+  navGames.append(titleNavDiv);
+  
+  const titleNavBefore = document.createElement("h1");
+  titleNavDiv.append(titleNavBefore);
+  titleNavBefore.innerText = "🎲♦️🎲 ";
+  titleNavBefore.id = "titleNavBefore";
+  titleNavBefore.className = "titleNavAll";
+
+Los componentes `structure.js`, `tresEnRaya.js`, `Card.js`, `laOca.js` podría componentizarse más. Deberías separar la lógica de los juegos de su renderizado.
+Las funciones `selectGameToPlay` y `returnToChangeTheGame` podrían/deberían refactorizarse, las subfunciones internas son iguales.
+//Por qué en el tablero del tres en raya una celda está con ` ` mientras que las otras están con “ ”
+En dispositivos móviles por debajo de 350px de ancho el tablero de la oca queda fuera de la vista, por ambos lados.
+
  */
