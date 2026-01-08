@@ -1,0 +1,127 @@
+.playerOca1,
+.playerOca2 {
+  margin: 10px;
+  cursor: pointer;
+}
+#laOcaTable {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: auto;
+  margin: var(--pf-margin-m);
+}
+.casillaOca {
+  border: 1px solid rgb(20, 19, 19);
+  min-width: 111px;
+  min-height: 111px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.casillaOca {
+  cursor: pointer;
+}
+.oca {
+  background-image: url(./assets/pato.png);
+  background-repeat: no-repeat;
+}
+.normal {
+  background-image: url(./assets/bosque.png);
+}
+.puente {
+  background-image: url(./assets/puente.png);
+}
+.inicio {
+  background-image: url(./assets/comienzo.png);
+}
+.dados {
+  background-image: url(./assets/dados.png);
+}
+.meta {
+  background-image: url(./assets/terminar.png);
+}
+.carcel {
+  background-image: url(./assets/carcel.png);
+}
+.posada {
+  background-image: url(./assets/casa.png);
+}
+.laberinto {
+  background-image: url(./assets/laberinto.png);
+}
+.calavera {
+  background-image: url(./assets/calavera.png);
+}
+#dados:hover {
+  scale: 1.1;
+}
+#dadoValor {
+  border: solid 2px black;
+  width: 130px;
+  display: flex;
+  justify-content: center;
+}
+.ficha {
+  width: 50px;
+  height: 50px;
+  background-color: #3498db;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease;
+}
+.jugador {
+  width: 150px;
+  height: 150px;
+}
+.jugagorName {
+  border: solid 1px red;
+}
+#jugadoresOca {
+  min-width: 150px;
+}
+.jugadorDice {
+  background-image: url(./assets/dice.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-width: 100px;
+  min-height: 100px;
+  cursor: pointer;
+}
+.jugadorDiceCurrent {
+  background-image: url(./assets/dice.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-width: 100px;
+  min-height: 100px;
+  cursor: pointer;
+  border: solid black 5px;
+  scale: 1.05;
+}
+#ficha1,
+#ficha2,
+#ficha3,
+#ficha4 {
+  width: 30px;
+  height: 30px;
+  margin: 1px;
+  border-radius: 50%;
+}
+#ficha1 {
+  border: 5px darkblue solid;
+  background-color: blue;
+}
+#ficha2 {
+  border: 5px darkred solid;
+  background-color: red;
+}
+#ficha3 {
+  border: 5px darkgreen solid;
+  background-color: green;
+}
+#ficha4 {
+  border: 5px darkorange solid;
+  background-color: yellow;
+}

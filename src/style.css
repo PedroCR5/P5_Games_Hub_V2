@@ -1,0 +1,45 @@
+/* GLOBAL STYLES */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: var(--pc-primary-font);
+}
+:root {
+  /* COLORS */
+  --pf-color-1: #ffffff;
+  --pf-color-2: #89ff89;
+  --pf-color-3: #00090f;
+  --pf-color-4: #478847;
+  --pf-color-5: #23800f;
+  --pf-color-6: #072c07;
+  --pf-bgColor1: var(--pf-color-5);
+  --pf-bgColor2: var(--pf-color-6);
+  --pf-bgColor3: var(--pf-color-1);
+  --pf-bgColor4: var(--pf-color-2);
+  --pf-special-color: var(--pf-color-2);
+  --pf-textColor1: var(--pf-color-1);
+  --pf-textColor2: var(--pf-color-5);
+  /* FONTS */
+  --pf-primary-font: 'Lato', sans-serif;
+  --pf-highlight-font: 'Anton', sans-serif;
+  /* SPACINGS */
+  --pf-margin-xs: 5px;
+  --pf-margin-s: 10px;
+  --pf-margin-m: 20px;
+  --pf-margin-l: 30px;
+  --pf-margin-xl: 50px;
+  --pf-padding-xs: 5px;
+  --pf-padding-s: 10px;
+  --pf-padding-m: 20px;
+  --pf-padding-l: 30px;
+  --pf-padding-xl: 50px;
+  --pf-gap-xs: 5px;
+  --pf-gap-s: 10px;
+  --pf-gap-m: 20px;
+  --pf-gap-l: 30px;
+  --pf-gap-xl: 50px;
+}

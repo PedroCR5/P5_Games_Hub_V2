@@ -1,0 +1,290 @@
+nav {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: var(--pf-margin-m);
+  padding: var(--pf-padding-m);
+  gap: var(--pf-gap-m);
+  background-color: var(--pf-bgColor1);
+}
+#titleNavDiv {
+  display: flex;
+  flex-direction: row;
+}
+.titleNavAll {
+  font-size: xx-large;
+  scale: 1.5;
+  margin: var(--pf-margin-s);
+  padding: var(--pf-padding-l);
+}
+#divNav {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: space-around;
+  margin: var(--pf-margin-m);
+  padding: var(--pf-padding-m);
+  gap: var(--pf-gap-m);
+}
+#pInitialNav {
+  margin: var(--pf-margin-m);
+  padding: var(--pf-padding-m);
+  gap: var(--pf-gap-m);
+  font-size: x-large;
+}
+.buttonNavGames {
+  font-size: large;
+  margin: var(--pf-margin-m);
+  padding: var(--pf-padding-m);
+  gap: var(--pf-gap-m);
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: var(--pf-bgColor4);
+}
+.gameTitle {
+  scale: 2;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: space-around;
+  margin: var(--pf-margin-m);
+  padding: var(--pf-padding-m);
+  gap: var(--pf-gap-m);
+}
+#tresEnRaya,
+#laOca,
+#memory {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+#laOcaContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: baseline;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+#laOcaPlayers {
+  display: flex;
+  flex-direction: column;
+}
+#playerListId {
+  display: flex;
+  flex-direction: row;
+}
+.divNavGames {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.imgNavGames {
+  max-width: 200px;
+  min-width: 150px;
+  max-height: 300px;
+  min-height: 150px;
+  filter: blur(1px);
+}
+.returnToNav {
+  width: 30%;
+  margin: var(--pf-margin-s);
+  padding: var(--pf-padding-s);
+  gap: var(--pf-gap-s);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.ultimosGanadores {
+  margin: var(--pf-margin-s);
+  padding: var(--pf-padding-s);
+}
+@media screen and (min-width: 650px) and (max-width: 900px) {
+  .titleNavAll {
+    scale: 1.2;
+    padding: var(--pf-padding-s);
+  }
+  #titleNavBefore,
+  #titleNavAfter {
+    scale: 0.7;
+  }
+  #pInitialNav {
+    font-size: medium;
+    padding: 0;
+  }
+  .buttonNavGames {
+    scale: 0.7;
+  }
+  .divNavGames {
+    scale: 0.8;
+  }
+  #tresEnRaya {
+    scale: 0.7;
+  }
+  #tresEnRayaReturnToNav {
+    margin: 0;
+    padding: 0;
+    border-radius: 0%;
+  }
+  #laOca {
+    scale: 0.55;
+    position: relative;
+    top: -200px;
+  }
+  #laOcaContainer {
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+  #laOcaReturnToNav {
+    scale: 2;
+  }
+  #laOcaTitle {
+    scale: 2.5;
+  }
+  #laOcaPlayers {
+    scale: 1.5;
+  }
+  #playerListId {
+    display: flex;
+    flex-direction: row;
+  }
+  #memory {
+    scale: 0.7;
+    position: relative;
+    top: -100px;
+  }
+}
+@media screen and (max-width: 650px) {
+  nav {
+    padding: 0;
+    margin: 0;
+    gap: 0;
+  }
+  #titleNav {
+    scale: 0.7;
+  }
+  #pInitialNav {
+    font-size: small;
+    padding: 0;
+  }
+  #divNav {
+    margin: 0;
+    padding: 0;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .titleNavAll {
+    font-size: xx-large;
+    margin: 0;
+    padding: 0;
+  }
+  .divNavGames {
+    scale: 0.5;
+  }
+  .imgNavGames {
+    display: none;
+  }
+  #titleNavDiv {
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+  }
+  #titleNavBefore,
+  #titleNavAfter {
+    scale: 0.5;
+    padding: 0;
+  }
+  #tresEnRaya {
+    scale: 0.5;
+    position: relative;
+    top: -100px;
+  }
+  #tresEnRayaReturnToNav {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 0%;
+    scale: 1;
+    font-size: 0;
+  }
+  #tresEnRayaReturnToNav::before {
+    content: 'VOLVER';
+    font-family: var(--pf-highlight-font);
+    font-size: 32px;
+  }
+  #tresEnRayaContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  #tresEnRayaTitle {
+    margin: 0;
+    padding: 0;
+    padding-top: var(--pf-margin-m);
+  }
+  #ultimoGanadortresEnRaya {
+    font-size: large;
+  }
+  #laOca {
+    scale: 0.5;
+    position: relative;
+    top: -200px;
+    margin: 0px;
+    padding: 0px;
+  }
+  #laOcaPlayers {
+    font-size: large;
+    scale: 3;
+    align-items: center;
+  }
+  #laOcaContainer {
+    scale: 0.5;
+    align-items: center;
+    flex-direction: column-reverse;
+    gap: 100px;
+    position: relative;
+    top: -200px;
+  }
+  #laOcaReturnToNav {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 0%;
+    scale: 1;
+    font-size: 0;
+  }
+  #laOcaReturnToNav::before {
+    content: 'VOLVER';
+    font-family: var(--pf-highlight-font);
+    font-size: 32px;
+  }
+  #playerListId {
+    display: flex;
+    flex-direction: row;
+    scale: 0.7;
+  }
+  #laOcaTable {
+    position: relative;
+    top: 200px;
+    scale: 1.2;
+  }
+  #memory {
+    scale: 0.9;
+  }
+  #memoryReturnToNav {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 0%;
+    scale: 1;
+    font-size: 0;
+  }
+  #memoryReturnToNav::before {
+    content: 'VOLVER';
+    font-family: var(--pf-highlight-font);
+    font-size: 16px;
+    scale: 1;
+  }
+  #memoryTitle {
+    scale: 1.4;
+  }
+}
