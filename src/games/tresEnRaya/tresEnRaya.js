@@ -32,7 +32,24 @@ export const printTresEnRaya = () => {
   player2.className = "player2";
   player1.textContent = "Jugador 1 ❌";
   player2.textContent = "Jugador 2 ⭕";
+  //Pintar el boton Reset
+  const resetTresEnRaya = document.createElement("button");
+  resetTresEnRaya.className = "reset";
+  resetTresEnRaya.id = "resetTresEnRaya";
+  resetTresEnRaya.textContent = "reset";
+  const tresEnRaya = document.querySelector(`#tresEnRaya`);
+  tresEnRaya.append(resetTresEnRaya);
+
 };
+export function clickResetTresEnRaya() {
+  const resetTresEnRaya = document.querySelector(`#resetTresEnRaya`);
+  resetTresEnRaya.addEventListener('click', () => {
+
+    printTresEnRaya();
+  });
+}
+
+
 export function clickCasillaCheck(cell, player) { // Al hacer click se pone círculo o cruz
   console.log("Cell clicked!");
   if ((!(cell.classList.contains('cruz') || cell.classList.contains('circulo')))) {

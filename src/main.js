@@ -1,4 +1,4 @@
-import { clickCasillaCheck, finDelJuego, printTresEnRaya } from './games/tresEnRaya/tresEnRaya';
+import { clickCasillaCheck, clickResetTresEnRaya, finDelJuego, printTresEnRaya } from './games/tresEnRaya/tresEnRaya';
 import { crearEstructuraPpal } from './structure/structure';
 import './style.css';
 import { pintarMemory } from './games/memory/memory';
@@ -22,7 +22,7 @@ export function gameTresEnRaya() {
   });
 };
 gameTresEnRaya();
-
+//clickResetTresEnRaya();
 //! Juego la Oca
 gameOca();
 
