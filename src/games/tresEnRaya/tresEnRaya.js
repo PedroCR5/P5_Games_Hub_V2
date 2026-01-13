@@ -1,6 +1,8 @@
 import './tresEnRaya.css';
 export const finDelJuego = 0;
-export const printTresEnRaya = () => {
+
+// Función para pintar el tablero del tres en  raya
+export function printTresEnRayaTable() {
   const tresEnRayaTable = document.querySelector(`#tresEnRayaTable`);
   tresEnRayaTable.innerHTML = "";
   const arrayTresEnRaya = [
@@ -15,6 +17,10 @@ export const printTresEnRaya = () => {
       tresEnRayaTable.append(divCasilla);
     }
   }
+};
+
+export const printTresEnRaya = () => {
+  printTresEnRayaTable();
   // Indicar el último ganador del juego.
   let anteriorGanadorTresEnRaya = localStorage.getItem("ganadorTresEnRaya");
   if (anteriorGanadorTresEnRaya != null) {
@@ -41,16 +47,29 @@ export const printTresEnRaya = () => {
   tresEnRaya.append(resetTresEnRaya);
 
 };
+
+export function initializationCells() {
+  let player = "1";
+  const cells = document.querySelectorAll('.casilla');
+  cells.forEach(cell => {
+    cell.addEventListener('click', () => {
+      //if (player == 1 || player == 2) {
+      player = clickCasillaCheck(cell, player);
+      //}
+    });
+  });
+};
+// Función para resetear el tres en raya
 export function clickResetTresEnRaya() {
   const resetTresEnRaya = document.querySelector(`#resetTresEnRaya`);
   resetTresEnRaya.addEventListener('click', () => {
-
-    printTresEnRaya();
+    printTresEnRayaTable();
+    initializationCells();
   });
-}
+};
 
-
-export function clickCasillaCheck(cell, player) { // Al hacer click se pone círculo o cruz
+// Al hacer click se pone círculo o cruz en la casilla
+export function clickCasillaCheck(cell, player) {
   console.log("Cell clicked!");
   if ((!(cell.classList.contains('cruz') || cell.classList.contains('circulo')))) {
     if (player === "1") {
@@ -75,24 +94,27 @@ export function clickCasillaCheck(cell, player) { // Al hacer click se pone cír
     ) {
       setTimeout(() => {
         alert("Ha ganado el Jugador 1");
-        //player = "fin";
         finDelJuego = "fin";
-
+        /*      printTresEnRayaTable();
+             initializationCells(); */
         localStorage.setItem("ganadorTresEnRaya", "Jugador 1");
       }, 500);
+
       return finDelJuego;
     }
     else if ((infoGanador[0] === "circulo" & infoGanador[1] === "circulo" & infoGanador[2] === 'circulo') || (infoGanador[3] === "circulo" & infoGanador[4] === "circulo" & infoGanador[5] === 'circulo') || (infoGanador[6] === "circulo" & infoGanador[7] === "circulo" & infoGanador[8] === 'circulo') || (infoGanador[0] === "circulo" & infoGanador[3] === "circulo" & infoGanador[6] === 'circulo') || (infoGanador[1] === "circulo" & infoGanador[4] === "circulo" & infoGanador[7] === 'circulo') || (infoGanador[2] === "circulo" & infoGanador[5] === "circulo" & infoGanador[8] === 'circulo') || (infoGanador[0] === "circulo" & infoGanador[4] === "circulo" & infoGanador[8] === 'circulo') || (infoGanador[2] === "circulo" & infoGanador[4] === "circulo" & infoGanador[6] === 'circulo')
     ) {
       setTimeout(() => {
         alert("Ha ganado el Jugador 2");
-        //player = "fin";
         finDelJuego = "fin";
+        /*         printTresEnRayaTable();
+                initializationCells(); */
         localStorage.setItem("ganadorTresEnRaya", "Jugador 2");
       }, 500);
+
       return finDelJuego;
 
     }
   }
   return player;
-}
+};
