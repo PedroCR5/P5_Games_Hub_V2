@@ -62,11 +62,24 @@ export function crearEstructuraPpal() {
     ultimoGanador.className = "ultimosGanadores";
     const gameContainer = document.createElement("div");
     gameContainer.id = `${e}Container`;
+
+    const gameWinnerContainer = document.createElement("div");
+    gameWinnerContainer.id = `${e}WinnerContainer`;
+    gameWinnerContainer.className = "gameWinnerContainers";
+    const gameWinnerContainerSpan = document.createElement("span");
+    const gameWinnerContainerP = document.createElement("p");
+    gameWinnerContainerSpan.id = `${e}CloseModal`;
+    gameWinnerContainerSpan.textContent = "&Times";
+    gameWinnerContainerP.innerText = "Esto es un modal";
     const gameTable = document.createElement("div");
     gameTable.id = `${e}Table`;
     const gamePlayers = document.createElement("div");
     gamePlayers.id = `${e}Players`;
     game.appendChild(gameContainer);
+    gameContainer.appendChild(gameWinnerContainer);
+    gameWinnerContainer.appendChild(gameWinnerContainerSpan);
+    gameWinnerContainer.appendChild(gameWinnerContainerP);
+
     gameContainer.appendChild(gameTable);
     gameContainer.appendChild(gamePlayers);
     title.insertAdjacentElement("afterend", ultimoGanador);
