@@ -47,7 +47,6 @@ Tres en raya
 El tablero no se resetea al ganar uno de ellos. ////Tampoco hay un botón para volver a reiniciar la partida, solo el de volver al menú inicial para jugar otro juego.
 En el local storage se guarda solamente quien ganó la última vez, no se lleva estadística de las veces que ganó cada uno de los jugadores
 
-
 Juego de la Oca:
 Tampoco termina y solo guarda en el Local Storage al que gane la primera partida.
 Al ganar uno de los jugadores y no finalizar la partida, el ganador comienza a ir hacia atrás en cada jugada.
