@@ -95,7 +95,7 @@ export function clickCasillaCheck(cell, player) {
       setTimeout(() => {
         alert("Ha ganado el Jugador 1");
         finDelJuego = "fin";
-
+        clickResetTresEnRaya();
         /*      printTresEnRayaTable();
              initializationCells(); */
         localStorage.setItem("ganadorTresEnRaya", "Jugador 1");
