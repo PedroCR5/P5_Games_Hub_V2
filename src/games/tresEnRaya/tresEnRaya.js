@@ -1,5 +1,5 @@
 import './tresEnRaya.css';
-export const finDelJuego = 0;
+//export const finDelJuego = 0;
 
 // Función para pintar el tablero del tres en  raya
 export function printTresEnRayaTable() {
@@ -94,7 +94,7 @@ export function clickCasillaCheck(cell, player) {
     ) {
       setTimeout(() => {
         alert("Ha ganado el Jugador 1");
-        finDelJuego = "fin";
+        //finDelJuego = "fin";
         clickResetTresEnRaya();
         /*      printTresEnRayaTable();
              initializationCells(); */
@@ -103,20 +103,30 @@ export function clickCasillaCheck(cell, player) {
 
         //        tresEnRayaContainer
       }, 500);
+      setTimeout(() => {
+        printTresEnRayaTable();
+        initializationCells();
 
-      return finDelJuego;
+      }, 500);
+      return //finDelJuego;
     }
     else if ((infoGanador[0] === "circulo" & infoGanador[1] === "circulo" & infoGanador[2] === 'circulo') || (infoGanador[3] === "circulo" & infoGanador[4] === "circulo" & infoGanador[5] === 'circulo') || (infoGanador[6] === "circulo" & infoGanador[7] === "circulo" & infoGanador[8] === 'circulo') || (infoGanador[0] === "circulo" & infoGanador[3] === "circulo" & infoGanador[6] === 'circulo') || (infoGanador[1] === "circulo" & infoGanador[4] === "circulo" & infoGanador[7] === 'circulo') || (infoGanador[2] === "circulo" & infoGanador[5] === "circulo" & infoGanador[8] === 'circulo') || (infoGanador[0] === "circulo" & infoGanador[4] === "circulo" & infoGanador[8] === 'circulo') || (infoGanador[2] === "circulo" & infoGanador[4] === "circulo" & infoGanador[6] === 'circulo')
     ) {
       setTimeout(() => {
         alert("Ha ganado el Jugador 2");
-        finDelJuego = "fin";
+        //finDelJuego = "fin";
         /*         printTresEnRayaTable();
                 initializationCells(); */
         localStorage.setItem("ganadorTresEnRaya", "Jugador 2");
+
+      }, 500);
+      setTimeout(() => {
+        printTresEnRayaTable();
+        initializationCells();
+
       }, 500);
 
-      return finDelJuego;
+      return //finDelJuego;
 
     }
   }

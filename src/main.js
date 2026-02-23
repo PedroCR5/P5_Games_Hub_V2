@@ -1,4 +1,4 @@
-import { clickCasillaCheck, clickResetTresEnRaya, finDelJuego, printTresEnRaya } from './games/tresEnRaya/tresEnRaya';
+import { clickCasillaCheck, clickResetTresEnRaya, printTresEnRaya } from './games/tresEnRaya/tresEnRaya';
 import { crearEstructuraPpal } from './structure/structure';
 import './style.css';
 import { pintarMemory } from './games/memory/memory';
@@ -44,8 +44,9 @@ En lugar de los alerts del sistema deberías manejar modales propios para intera
 Tres en raya
 ?Cambiar el ganador
 //Una vez que gana un jugador, el juego no se detiene, si quedan casillas en blanco en el tablero, cada jugada (sea del jugador que sea), muestra nuevamente el mensae de victoria del jugador ganador. 
-El tablero no se resetea al ganar uno de ellos. ////Tampoco hay un botón para volver a reiniciar la partida, solo el de volver al menú inicial para jugar otro juego.
+//El tablero no se resetea al ganar uno de ellos. ////Tampoco hay un botón para volver a reiniciar la partida, solo el de volver al menú inicial para jugar otro juego.
 En el local storage se guarda solamente quien ganó la última vez, no se lleva estadística de las veces que ganó cada uno de los jugadores
+Al salir y entrar en el juego me añade un reset mas.
 
 Juego de la Oca:
 Tampoco termina y solo guarda en el Local Storage al que gane la primera partida.
