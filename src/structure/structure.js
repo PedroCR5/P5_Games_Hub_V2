@@ -89,6 +89,30 @@ export function crearEstructuraPpal() {
     resetJuego.className = "reset";
     resetJuego.textContent = "reset";
     game.append(resetJuego);
+
+    // Crear la estructura del modal
+    const modalContainer = document.createElement('div');
+    modalContainer.className = 'modalContainer';
+    modalContainer.id = `${e}ModalContainer`;
+
+    const modalDiv = document.createElement('div');
+    modalDiv.className = 'modalDiv';
+    modalDiv.id = `${e}ModalDiv`;
+
+    const modalInfo = document.createElement('p');
+    modalInfo.className = 'modalInfo';
+    modalInfo.id = `${e}ModalInfo`;
+
+    const modalButton = document.createElement('button');
+    modalButton.className = 'modalButton';
+    modalButton.id = `${e}ModalButton`;
+    modalButton.textContent = 'Aceptar';
+    //modalButton.onclick = closeModal();
+
+    modalDiv.appendChild(modalInfo);
+    modalDiv.appendChild(modalButton);
+    modalContainer.appendChild(modalDiv);
+    game.appendChild(modalContainer);
   });
   // Los 3 juegos en la pantalla principal
   const tresEnRayaSelectGame = document.getElementById("tresEnRayaSelect");
@@ -110,3 +134,28 @@ export function crearEstructuraPpal() {
   const memoryTitle = document.getElementById("memoryTitle");
   memoryTitle.innerText = "JUGAR AL MEMORY";
 };
+
+
+
+/* // Función para mostrar modal
+function customAlert(message) {
+  modalMessage.textContent = message;
+  modalOverlay.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+// Función para cerrar modal
+function closeModal() {
+  modalOverlay.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// Cerrar al hacer clic fuera
+modalOverlay.addEventListener('click', function (e) {
+  if (e.target === modalOverlay) closeModal();
+});
+
+// Botón de prueba
+document.getElementById('showModalBtn').addEventListener('click', () => {
+  customAlert('Este modal fue creado solo con JavaScript');
+}); */

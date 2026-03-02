@@ -51,8 +51,9 @@ returnToChangeTheGame();// Click para volver a la pantalla inicial y resetear la
 //!Notas Técnicas
 /* 
 En lugar de los alerts del sistema deberías manejar modales propios para interactuar con los usuarios.
+Tengo la estructura del modal hecha, me falta style, display none, colocarlo, y funciones de dispararlo.
 Tres en raya
-?Cambiar el ganador
+?Cambiar el ganador, no lo refresca despues de cada partida ganadora
 //Una vez que gana un jugador, el juego no se detiene, si quedan casillas en blanco en el tablero, cada jugada (sea del jugador que sea), muestra nuevamente el mensae de victoria del jugador ganador. 
 //El tablero no se resetea al ganar uno de ellos. ////Tampoco hay un botón para volver a reiniciar la partida, solo el de volver al menú inicial para jugar otro juego.
 En el local storage se guarda solamente quien ganó la última vez, no se lleva estadística de las veces que ganó cada uno de los jugadores
