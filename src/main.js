@@ -22,7 +22,17 @@ export function gameTresEnRaya() {
   });
 };
 gameTresEnRaya();
-clickResetTresEnRaya()
+clickResetTresEnRaya();
+
+console.log(localStorage.getItem("ganadorTresEnRaya"));
+
+
+/* localStorage.setItem("jugador1", "1");
+const prueba1 = localStorage.getItem("jugador1");
+console.log(prueba1);
+prueba1++
+console.log(prueba1); */
+
 //! Juego la Oca
 gameOca();
 
@@ -46,7 +56,7 @@ Tres en raya
 //Una vez que gana un jugador, el juego no se detiene, si quedan casillas en blanco en el tablero, cada jugada (sea del jugador que sea), muestra nuevamente el mensae de victoria del jugador ganador. 
 //El tablero no se resetea al ganar uno de ellos. ////Tampoco hay un botón para volver a reiniciar la partida, solo el de volver al menú inicial para jugar otro juego.
 En el local storage se guarda solamente quien ganó la última vez, no se lleva estadística de las veces que ganó cada uno de los jugadores
-Al salir y entrar en el juego me añade un reset mas.
+//Al salir y entrar en el juego me añade un reset mas.
 
 Juego de la Oca:
 Tampoco termina y solo guarda en el Local Storage al que gane la primera partida.
@@ -55,7 +65,7 @@ Da siempre que gana el jugador 1 aunque gane cualquier otro. Ya que tienes ficha
 ¿Por qué el tablero es clicable?
 Tampoco hay cómo reiniciar el juego. Debo volver al inicio y seleccionar nuevamente el Juego de la Oca
 Cuanto más jugadores escoja, más se extiende el tablero y el input del N° de jugadores. Cuando juega el primer jugador, el tablero vuelve a su posición normal.
-
+Añadir Reset
 
 Memory
 En este caso si cambia qué jugador gana la última partida, pero no se guarda el record de cuántas partidas ganadas por cada jugador.

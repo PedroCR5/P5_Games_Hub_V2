@@ -1,3 +1,4 @@
+//import { loadConfigFromFile } from 'vite';
 import './tresEnRaya.css';
 //export const finDelJuego = 0;
 
@@ -39,12 +40,14 @@ export const printTresEnRaya = () => {
   player1.textContent = "Jugador 1 ❌";
   player2.textContent = "Jugador 2 ⭕";
   //Pintar el boton Reset
-  const resetTresEnRaya = document.createElement("button");
+  const resetTresEnRaya = document.querySelector(`#tresEnRayaReset`);;
+  resetTresEnRaya.innerHTML = "";
+
   resetTresEnRaya.className = "reset";
   resetTresEnRaya.id = "resetTresEnRaya";
   resetTresEnRaya.textContent = "reset";
-  const tresEnRaya = document.querySelector(`#tresEnRaya`);
-  tresEnRaya.append(resetTresEnRaya);
+  //const tresEnRaya = document.querySelector(`#tresEnRaya`);
+  //tresEnRaya.append(resetTresEnRaya);
 
 };
 
@@ -99,6 +102,9 @@ export function clickCasillaCheck(cell, player) {
         /*      printTresEnRayaTable();
              initializationCells(); */
         localStorage.setItem("ganadorTresEnRaya", "Jugador 1");
+        //localStorage.getItem("jugador1");
+
+        //localStorage.setItem("jugador1", )
         //const tresEnRayaTable=getElementById("tresEnRayaContainer");
 
         //        tresEnRayaContainer

@@ -83,6 +83,12 @@ export function crearEstructuraPpal() {
     gameContainer.appendChild(gameTable);
     gameContainer.appendChild(gamePlayers);
     title.insertAdjacentElement("afterend", ultimoGanador);
+
+    const resetJuego = document.createElement("button");
+    resetJuego.id = `${e}Reset`;
+    resetJuego.className = "reset";
+    resetJuego.textContent = "reset";
+    game.append(resetJuego);
   });
   // Los 3 juegos en la pantalla principal
   const tresEnRayaSelectGame = document.getElementById("tresEnRayaSelect");
