@@ -97,6 +97,7 @@ export function clickCasillaCheck(cell, player) {
     ) {
       setTimeout(() => {
         alert("Ha ganado el Jugador 1");
+        //? llamar al modal display:flex y poner texto en p
         //finDelJuego = "fin";
         clickResetTresEnRaya();
         /*      printTresEnRayaTable();
