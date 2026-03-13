@@ -98,17 +98,25 @@ export function clickCasillaCheck(cell, player) {
       setTimeout(() => {
         alert("Ha ganado el Jugador 1");
         //? llamar al modal display:flex y poner texto en p
+        const modalOn = document.getElementById('tresEnRayaModalContainer');
+        const infoModalP = document.getElementById("tresEnRayaModalInfo");
+        infoModalP.innerText = "El jugador 1 ha ganado esta partida. ¡¡Enhorabuena!!";
+        //console.log(modalOn);
+        modalOn.style.display = "flex";
+        //console.log("hola ganador");
+
+
         //finDelJuego = "fin";
         clickResetTresEnRaya();
         /*      printTresEnRayaTable();
              initializationCells(); */
-        localStorage.setItem("ganadorTresEnRaya", "Jugador 1");
-        //localStorage.getItem("jugador1");
+        //Leo las partidas ganadas, si no estuviera declarada pone un 0 y luego incrementamos a 1.
+        let partidasGanadasJugador1 = parseInt(localStorage.getItem("partidasGanadasJugador1"), 10) || 0;
+        partidasGanadasJugador1++;
+        localStorage.setItem("ultimoGanadorTresEnRaya", "Jugador 1");
+        localStorage.setItem("partidasGanadasJugador1", partidasGanadasJugador1.toString());
+        console.log(partidasGanadasJugador1);
 
-        //localStorage.setItem("jugador1", )
-        //const tresEnRayaTable=getElementById("tresEnRayaContainer");
-
-        //        tresEnRayaContainer
       }, 500);
       setTimeout(() => {
         printTresEnRayaTable();
@@ -124,7 +132,13 @@ export function clickCasillaCheck(cell, player) {
         //finDelJuego = "fin";
         /*         printTresEnRayaTable();
                 initializationCells(); */
-        localStorage.setItem("ganadorTresEnRaya", "Jugador 2");
+
+        //Leo las partidas ganadas, si no estuviera declarada pone un 0 y luego incrementamos a 1.
+        let partidasGanadasJugador2 = parseInt(localStorage.getItem("partidasGanadasJugador2"), 10) || 0;
+        partidasGanadasJugador2++;
+        localStorage.setItem("ultimoGanadorTresEnRaya", "Jugador 2");
+        localStorage.setItem("partidasGanadasJugador2", partidasGanadasJugador2.toString());
+        console.log(partidasGanadasJugador2);
 
       }, 500);
       setTimeout(() => {
