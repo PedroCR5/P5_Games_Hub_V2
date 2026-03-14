@@ -106,7 +106,7 @@ nav {
 /*Estilo de los modales*/
 /* Estilos del fondo del modal */
 .modalContainer {
-  /*display: none; /* Oculto por defecto */
+  display: none; /* Oculto por defecto */
   position: fixed;
   /*   top: 0;
   left: 0; */
