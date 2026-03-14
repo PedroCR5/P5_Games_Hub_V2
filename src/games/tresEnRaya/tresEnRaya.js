@@ -23,7 +23,7 @@ export function printTresEnRayaTable() {
 export const printTresEnRaya = () => {
   printTresEnRayaTable();
   // Indicar el último ganador del juego.
-  let anteriorGanadorTresEnRaya = localStorage.getItem("ganadorTresEnRaya");
+  let anteriorGanadorTresEnRaya = localStorage.getItem("ultimoGanadorTresEnRaya");
   if (anteriorGanadorTresEnRaya != null) {
     let checkUltimoGanadorTresEnRaya = document.getElementById("ultimoGanadortresEnRaya");
     checkUltimoGanadorTresEnRaya.innerHTML = `El último ganador ha sido el ${anteriorGanadorTresEnRaya}`;
@@ -82,16 +82,16 @@ export function clickCasillaCheck(cell, player) {
       cell.classList = "circulo";
       player = "1";
     }
-    else if (player === "fin") {
-      console.log(player);
-
-    }
+    /*     else if (player === "fin") {
+          console.log(player);
+        } */
     // Comprobar si alguien ha ganado
     const arrayTresEnRayaCheck = document.querySelectorAll('#tresEnRayaTable > div');
     const infoGanador = [];
     arrayTresEnRayaCheck.forEach(element => {
       infoGanador.push(element.className);
     });
+
     // Comprobar las combinaciones que hacen un tres en raya
     if ((infoGanador[0] === "cruz" & infoGanador[1] === "cruz" & infoGanador[2] === 'cruz') || (infoGanador[3] === "cruz" & infoGanador[4] === "cruz" & infoGanador[5] === 'cruz') || (infoGanador[6] === "cruz" & infoGanador[7] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[0] === "cruz" & infoGanador[3] === "cruz" & infoGanador[6] === 'cruz') || (infoGanador[1] === "cruz" & infoGanador[4] === "cruz" & infoGanador[7] === 'cruz') || (infoGanador[2] === "cruz" & infoGanador[5] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[0] === "cruz" & infoGanador[4] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[2] === "cruz" & infoGanador[4] === "cruz" & infoGanador[6] === 'cruz')
     ) {
@@ -101,21 +101,17 @@ export function clickCasillaCheck(cell, player) {
         const modalOn = document.getElementById('tresEnRayaModalContainer');
         const infoModalP = document.getElementById("tresEnRayaModalInfo");
         infoModalP.innerText = "El jugador 1 ha ganado esta partida. ¡¡Enhorabuena!!";
-        //console.log(modalOn);
         modalOn.style.display = "flex";
-        //console.log("hola ganador");
-
-
-        //finDelJuego = "fin";
-        clickResetTresEnRaya();
-        /*      printTresEnRayaTable();
-             initializationCells(); */
+        //clickResetTresEnRaya();
         //Leo las partidas ganadas, si no estuviera declarada pone un 0 y luego incrementamos a 1.
         let partidasGanadasJugador1 = parseInt(localStorage.getItem("partidasGanadasJugador1"), 10) || 0;
         partidasGanadasJugador1++;
         localStorage.setItem("ultimoGanadorTresEnRaya", "Jugador 1");
         localStorage.setItem("partidasGanadasJugador1", partidasGanadasJugador1.toString());
         console.log(partidasGanadasJugador1);
+        // Ponemos el último ganador en el juego
+        const ultGanador3EnRaya = document.getElementById("ultimoGanadortresEnRaya");
+        ultGanador3EnRaya.innerHTML = "El último ganador ha sido el Jugador 1";
 
       }, 500);
       setTimeout(() => {
@@ -140,6 +136,9 @@ export function clickCasillaCheck(cell, player) {
         localStorage.setItem("partidasGanadasJugador2", partidasGanadasJugador2.toString());
         console.log(partidasGanadasJugador2);
 
+        // Ponemos el último ganador en el juego
+        const ultGanador3EnRaya = document.getElementById("ultimoGanadortresEnRaya");
+        ultGanador3EnRaya.innerHTML = "El último ganador ha sido el Jugador 2";
       }, 500);
       setTimeout(() => {
         printTresEnRayaTable();
