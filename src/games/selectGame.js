@@ -1,5 +1,7 @@
-import { gameMemory, gameTresEnRaya } from "../main";
+import { gameMemory } from "../main";
 import { gameOca } from "./laOca/laOca";
+import { gameTresEnRaya } from "./tresEnRaya/tresEnRaya";
+
 export function selectGameToPlay() { // Entrar en el juego al pulsar en la pantalla principal
   let tresEnRayaClickAJugar = document.getElementById("tresEnRayaSelect");
   tresEnRayaClickAJugar.addEventListener('click', () => {

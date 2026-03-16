@@ -1,39 +1,16 @@
-import { clickCasillaCheck, clickResetTresEnRaya, printTresEnRaya } from './games/tresEnRaya/tresEnRaya';
-import { crearEstructuraPpal } from './structure/structure';
 import './style.css';
+import { crearEstructuraPpal } from './structure/structure';
+import { returnToChangeTheGame, selectGameToPlay } from './games/selectGame';
+import { clickResetTresEnRaya, gameTresEnRaya } from './games/tresEnRaya/tresEnRaya';
 import { pintarMemory } from './games/memory/memory';
 import { getImages } from './games/memory/infoAPI';
 import { gameOca } from './games/laOca/laOca';
-import { returnToChangeTheGame, selectGameToPlay } from './games/selectGame';
+
 crearEstructuraPpal()
 
-
-
 //! Juego Tres en Raya
-export function gameTresEnRaya() {
-  printTresEnRaya();
-  // Poner cruz o círculo al hacer click en la casilla
-  let player = "1";
-  const cells = document.querySelectorAll('.casilla');
-  cells.forEach(cell => {
-    cell.addEventListener('click', () => {
-      //if (player == 1 || player == 2) {
-      player = clickCasillaCheck(cell, player);
-      //}
-    });
-  });
-};
 gameTresEnRaya();
 clickResetTresEnRaya();
-
-console.log(localStorage.getItem("ganadorTresEnRaya"));
-
-
-/* localStorage.setItem("jugador1", "1");
-const prueba1 = localStorage.getItem("jugador1");
-console.log(prueba1);
-prueba1++
-console.log(prueba1); */
 
 //! Juego la Oca
 gameOca();
@@ -52,9 +29,10 @@ returnToChangeTheGame();// Click para volver a la pantalla inicial y resetear la
 
 //!Notas Técnicas
 /* 
-En lugar de los alerts del sistema deberías manejar modales propios para interactuar con los usuarios.
+ En lugar de los alerts del sistema deberías manejar modales propios para interactuar con los usuarios.
 Tengo la estructura del modal hecha, me falta style, display none, colocarlo, y funciones de dispararlo.
 Tres en raya
+Ya tiene modal, falta ponerlo guapo.
 //Cambiar el ganador, no lo refresca despues de cada partida ganadora
 //Una vez que gana un jugador, el juego no se detiene, si quedan casillas en blanco en el tablero, cada jugada (sea del jugador que sea), muestra nuevamente el mensae de victoria del jugador ganador. 
 //El tablero no se resetea al ganar uno de ellos. ////Tampoco hay un botón para volver a reiniciar la partida, solo el de volver al menú inicial para jugar otro juego.

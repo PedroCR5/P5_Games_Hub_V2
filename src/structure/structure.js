@@ -134,28 +134,3 @@ export function crearEstructuraPpal() {
   const memoryTitle = document.getElementById("memoryTitle");
   memoryTitle.innerText = "JUGAR AL MEMORY";
 };
-
-
-
-/* // Función para mostrar modal
-function customAlert(message) {
-  modalMessage.textContent = message;
-  modalOverlay.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-
-// Función para cerrar modal
-function closeModal() {
-  modalOverlay.style.display = 'none';
-  document.body.style.overflow = '';
-}
-
-// Cerrar al hacer clic fuera
-modalOverlay.addEventListener('click', function (e) {
-  if (e.target === modalOverlay) closeModal();
-});
-
-// Botón de prueba
-document.getElementById('showModalBtn').addEventListener('click', () => {
-  customAlert('Este modal fue creado solo con JavaScript');
-}); */
