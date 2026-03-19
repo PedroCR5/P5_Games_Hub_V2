@@ -103,6 +103,10 @@ export const printOca = () => {
     let checkUltimoGanadorOca = document.getElementById("ultimoGanadorlaOca");
     checkUltimoGanadorOca.innerHTML = `El último ganador ha sido el ${anteriorGanadorOca}`;
   };
+  //Pintar el boton Reset
+  const laOcaReset = document.querySelector(`#laOcaReset`);;
+  laOcaReset.innerHTML = "";
+  laOcaReset.textContent = "Resetea la partida aquí";
 };
 export function createImputNumberPlayers() {
   const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);

@@ -18,4 +18,8 @@ export function pintarMemory() {
     let checkAnteriorGanadorMemory = document.getElementById("ultimoGanadormemory");
     checkAnteriorGanadorMemory.innerHTML = `El último ganador ha sido el ${anteriorGanadorMemory}`;
   };
+  //Pintar el boton Reset
+  const memoryReset = document.querySelector(`#memoryReset`);;
+  memoryReset.innerHTML = "";
+  memoryReset.textContent = "Resetea la partida aquí";
 };

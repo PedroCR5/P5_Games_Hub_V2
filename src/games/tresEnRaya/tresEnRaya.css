@@ -36,3 +36,10 @@
 .cruz {
   background-image: url(./assets/cruz.png);
 }
+.reset {
+  padding: 10px;
+  margin: 25px;
+  /* margin-right: 45px; */
+  background-color: yellow;
+  border-radius: 10%;
+}

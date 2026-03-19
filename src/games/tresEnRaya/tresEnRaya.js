@@ -41,7 +41,7 @@ export const printTresEnRaya = () => {//Pintar todo el 3 en raya
   resetTresEnRaya.innerHTML = "";
   resetTresEnRaya.className = "reset";
   resetTresEnRaya.id = "resetTresEnRaya";
-  resetTresEnRaya.textContent = "reset";
+  resetTresEnRaya.textContent = "Resetea la partida aquí";
 };
 
 export function initializationCells() {//Inicializar casillas
