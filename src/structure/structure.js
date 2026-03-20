@@ -112,7 +112,7 @@ export function crearEstructuraPpal() {
     modalDiv.appendChild(modalInfo);
     modalDiv.appendChild(modalButton);
     modalContainer.appendChild(modalDiv);
-    game.appendChild(modalContainer);
+    game.prepend(modalContainer);
   });
   // Los 3 juegos en la pantalla principal
   const tresEnRayaSelectGame = document.getElementById("tresEnRayaSelect");

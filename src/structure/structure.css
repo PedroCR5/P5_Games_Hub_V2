@@ -107,7 +107,7 @@ nav {
 /* Estilos del fondo del modal */
 .modalContainer {
   display: none; /* Oculto por defecto */
-  position: fixed;
+  /* position: fixed; */
   /*   top: 0;
   left: 0; */
 
@@ -121,14 +121,23 @@ nav {
 
 /* Caja del modal */
 .modalDiv {
-  position: fixed;
-  left: 15%;
-  top: 40%;
-  background: #fff;
+  /*  position: fixed; */
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /*  top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  /*   left: 50%;
+  top: 40%; */
+  background: #b48a8a;
   padding: 50px;
   border-radius: 8px;
-  max-width: 400px;
-  width: 90%;
+  /* max-width: 400px; */
+  width: 60%;
+  /* height: 30%; */
   text-align: center;
   /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);*/
   animation: fadeIn 0.3s ease;
