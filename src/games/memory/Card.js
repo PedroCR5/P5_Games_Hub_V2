@@ -2,6 +2,31 @@ import "./memory.css";
 let currentPlayerMemory = "player1"; // Jugador que le toca
 let cardFirst = 0;
 let cardSecond = 0;
+// Función disparar el modal
+function lanzarModal(ganador) {
+  //Disparo el modal
+  const modalOn = document.getElementById('memoryModalContainer');
+  const infoModalP = document.getElementById("memoryModalInfo");
+  infoModalP.innerText = `El ${ganador} ha ganado esta partida. ¡¡Enhorabuena!!`;
+  modalOn.style.display = "flex";
+
+  //Quito el modal al pulsar el button
+  const modalButton = document.getElementById("memoryModalButton");
+  modalButton.addEventListener('click', function () {
+    modalOn.style.display = "none";
+  });
+
+  //Leo las partidas ganadas, si no estuviera declarada pone un 0 y luego incrementamos a 1.
+  let partidasGanadasJugador2 = parseInt(localStorage.getItem("partidasGanadasJugador2"), 10) || 0;
+  partidasGanadasJugador2++;
+  localStorage.setItem("ultimoGanadorTresEnRaya", "Jugador 2");
+  localStorage.setItem("partidasGanadasJugador2", partidasGanadasJugador2.toString());
+  console.log(partidasGanadasJugador2);
+
+  // Ponemos el último ganador en el juego
+  const ultGanador3EnRaya = document.getElementById("ultimoGanadortresEnRaya");
+  ultGanador3EnRaya.innerHTML = "El último ganador ha sido el Jugador 2";
+}
 // Función crear cartas
 export function createCards(imagesList) {
   document.querySelector("#memoryTable").innerHTML = ` `;
@@ -84,6 +109,7 @@ export function createCards(imagesList) {
               if (aciertosPlayer1 + aciertosPlayer2 == 10) {
                 console.log("Juego acabado");
                 if (aciertosPlayer1 > aciertosPlayer2) {
+
                   alert("Ha ganado el Jugador 1");
                   localStorage.setItem("ganadorMemory", "Jugador 1");
                 } else if (aciertosPlayer1 < aciertosPlayer2) {
