@@ -43,7 +43,7 @@ Juego de la Oca:
 Tampoco termina y solo guarda en el Local Storage al que gane la primera partida.
 Al ganar uno de los jugadores y no finalizar la partida, el ganador comienza a ir hacia atrás en cada jugada.
 Da siempre que gana el jugador 1 aunque gane cualquier otro. Ya que tienes fichas de colores, deberías identificar los dados y el ganador con el color correspondiente.
-¿Por qué el tablero es clicable?
+¿Por qué el tablero es clicable?ñ
 Tampoco hay cómo reiniciar el juego. Debo volver al inicio y seleccionar nuevamente el Juego de la Oca
 Cuanto más jugadores escoja, más se extiende el tablero y el input del N° de jugadores. Cuando juega el primer jugador, el tablero vuelve a su posición normal.
 Añadir Reset

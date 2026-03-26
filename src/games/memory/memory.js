@@ -1,3 +1,11 @@
+export function clickResetMemory() {// Función para resetear el tres en raya
+  const resetMemory = document.querySelector(`#memoryReset`);
+  resetMemory.addEventListener('click', () => {
+    gameMemory();
+    //pintarMemory();
+    // initializationCells();
+  });
+};
 export function pintarMemory() {
   const memoryTable = document.querySelector(`#memoryTable`);
   memoryTable.innerHTML = "";
