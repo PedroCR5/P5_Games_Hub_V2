@@ -106,15 +106,20 @@ export function createCards(imagesList) {
               console.log(aciertosPlayer1);
               console.log(aciertosPlayer2);
               //Comprobamos si el juego se acaba y quien gana
-              if (aciertosPlayer1 + aciertosPlayer2 == 10) {
+              if (aciertosPlayer1 + aciertosPlayer2 == 3) { //!hay que pone 10
                 console.log("Juego acabado");
                 if (aciertosPlayer1 > aciertosPlayer2) {
 
                   alert("Ha ganado el Jugador 1");
                   localStorage.setItem("ganadorMemory", "Jugador 1");
+                  lanzarModal("Jugador 1 hola");
+
+
                 } else if (aciertosPlayer1 < aciertosPlayer2) {
                   alert("Ha ganado el Jugador 2");
                   localStorage.setItem("ganadorMemory", "Jugador 2");
+                  lanzarModal("Jugador  hola hola 2");
+
                 } else {
                   console.log("Empate");
                 }
