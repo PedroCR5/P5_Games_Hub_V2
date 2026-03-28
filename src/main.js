@@ -2,7 +2,7 @@ import './style.css';
 import { crearEstructuraPpal } from './structure/structure';
 import { returnToChangeTheGame, selectGameToPlay } from './games/selectGame';
 import { clickResetTresEnRaya, gameTresEnRaya } from './games/tresEnRaya/tresEnRaya';
-import { pintarMemory } from './games/memory/memory';
+import { clickResetMemory, pintarMemory } from './games/memory/memory';
 import { getImages } from './games/memory/infoAPI';
 import { gameOca } from './games/laOca/laOca';
 
@@ -23,6 +23,7 @@ export function gameMemory() {
   getImages('dog'); //Voy a infoAPI.js para recoger la info y pinto las Cards en Card.js.
 };
 gameMemory();
+clickResetMemory();
 
 selectGameToPlay();// Click para seleccionar el juego
 returnToChangeTheGame();// Click para volver a la pantalla inicial y resetear la partida jugada
@@ -30,6 +31,7 @@ returnToChangeTheGame();// Click para volver a la pantalla inicial y resetear la
 //!Notas Técnicas
 /* 
  En lugar de los alerts del sistema deberías manejar modales propios para interactuar con los usuarios.
+ Pintar todos los ganadores con nº de victoria
 //Tengo la estructura del modal hecha, me falta style, display none, colocarlo, y funciones de dispararlo.
 Tres en raya
 //Ya tiene modal, falta ponerlo guapo.
@@ -49,9 +51,12 @@ Cuanto más jugadores escoja, más se extiende el tablero y el input del N° de 
 Añadir Reset
 
 Memory
-En este caso si cambia qué jugador gana la última partida, pero no se guarda el record de cuántas partidas ganadas por cada jugador.
-Igual que los otros juegos, debo volver a la pantalla principal, porque no tengo como reiniciar el juego desde su propia pantalla
-
+Me falla el nº de partidas ganadas
+//En este caso si cambia qué jugador gana la última partida, pero no se guarda el record de cuántas partidas ganadas por cada jugador.
+//Igual que los otros juegos, debo volver a la pantalla principal, porque no tengo como reiniciar el juego desde su propia pantalla
+//reset ok
+//modal ok
+//guardar los ganadores
 
 Aspectos Positivos
 

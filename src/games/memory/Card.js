@@ -1,3 +1,4 @@
+import { gameMemory } from "../../main";
 import "./memory.css";
 let currentPlayerMemory = "player1"; // Jugador que le toca
 let cardFirst = 0;
@@ -10,22 +11,61 @@ function lanzarModal(ganador) {
   infoModalP.innerText = `El ${ganador} ha ganado esta partida. ¡¡Enhorabuena!!`;
   modalOn.style.display = "flex";
 
-  //Quito el modal al pulsar el button
+  //Quito el modal al pulsar el button y reseteo el memory
   const modalButton = document.getElementById("memoryModalButton");
   modalButton.addEventListener('click', function () {
     modalOn.style.display = "none";
+    gameMemory();//Así reseteo el memory
   });
 
   //Leo las partidas ganadas, si no estuviera declarada pone un 0 y luego incrementamos a 1.
-  let partidasGanadasJugador2 = parseInt(localStorage.getItem("partidasGanadasJugador2"), 10) || 0;
-  partidasGanadasJugador2++;
-  localStorage.setItem("ultimoGanadorTresEnRaya", "Jugador 2");
-  localStorage.setItem("partidasGanadasJugador2", partidasGanadasJugador2.toString());
-  console.log(partidasGanadasJugador2);
+  if (ganador == "Jugador 1") {
+    let partidasGanadasJugador1 = parseInt(localStorage.getItem("partidasGanadasJugador1"), 10) || 0;
+    partidasGanadasJugador1++;
+    localStorage.setItem("ultimoGanadorMemory", "Jugador 1");
+    localStorage.setItem("partidasGanadasMemoryJugador1", partidasGanadasJugador1.toString());
+    console.log(`En el memory el Jugador 1 lleva ganadas ${partidasGanadasJugador1 + 1} partidas.`);
+  }
+  if (ganador == "Jugador 2") {
+    let partidasGanadasJugador2 = parseInt(localStorage.getItem("partidasGanadasJugador2"), 10) || 0;
+    partidasGanadasJugador2++;
+    localStorage.setItem("ultimoGanadorMemory", "Jugador 2");
+    localStorage.setItem("partidasGanadasMemoryJugador2", partidasGanadasJugador2.toString());
+    console.log(`En el memory el Jugador 2 lleva ganadas ${partidasGanadasJugador2 + 1} partidas.`);
+  }
+
 
   // Ponemos el último ganador en el juego
   const ultGanador3EnRaya = document.getElementById("ultimoGanadortresEnRaya");
   ultGanador3EnRaya.innerHTML = "El último ganador ha sido el Jugador 2";
+}
+function checkMemoryWinners(aciertosPlayer1, aciertosPlayer2) {
+  if (aciertosPlayer1 + aciertosPlayer2 == 3) { //!hay que pone 10
+    console.log("Juego acabado");
+    if (aciertosPlayer1 > aciertosPlayer2) {
+      localStorage.setItem("ganadorMemory", "Jugador 1");
+      lanzarModal("Jugador 1");
+      //Leo las partidas ganadas, si no estuviera declarada pone un 0 y luego incrementamos a 1.
+      let partidasGanadasMemoryJugador1 = parseInt(localStorage.getItem("partidasGanadasMemoryJugador1"), 10) || 0;
+      partidasGanadasMemoryJugador1++;
+      localStorage.setItem("ultimoGanadorMemory", "Jugador 1");
+      localStorage.setItem("partidasGanadasMemoryJugador1", partidasGanadasMemoryJugador1.toString());
+      console.log(partidasGanadasMemoryJugador1);
+
+    } else if (aciertosPlayer1 < aciertosPlayer2) {
+      //alert("Ha ganado el Jugador 2");
+      localStorage.setItem("ganadorMemory", "Jugador 2");
+      lanzarModal("Jugador 2");
+      //Leo las partidas ganadas, si no estuviera declarada pone un 0 y luego incrementamos a 1.
+      let partidasGanadasMemoryJugador2 = parseInt(localStorage.getItem("partidasGanadasMemoryJugador2"), 10) || 0;
+      partidasGanadasMemoryJugador2++;
+      localStorage.setItem("ultimoGanadorMemory", "Jugador 2");
+      localStorage.setItem("partidasGanadasMemoryJugador2", partidasGanadasMemoryJugador2.toString());
+      console.log(partidasGanadasMemoryJugador2);
+    } else {
+      console.log("Empate");
+    }
+  };
 }
 // Función crear cartas
 export function createCards(imagesList) {
@@ -106,24 +146,9 @@ export function createCards(imagesList) {
               console.log(aciertosPlayer1);
               console.log(aciertosPlayer2);
               //Comprobamos si el juego se acaba y quien gana
-              if (aciertosPlayer1 + aciertosPlayer2 == 3) { //!hay que pone 10
-                console.log("Juego acabado");
-                if (aciertosPlayer1 > aciertosPlayer2) {
 
-                  alert("Ha ganado el Jugador 1");
-                  localStorage.setItem("ganadorMemory", "Jugador 1");
-                  lanzarModal("Jugador 1 hola");
+              checkMemoryWinners(aciertosPlayer1, aciertosPlayer2);
 
-
-                } else if (aciertosPlayer1 < aciertosPlayer2) {
-                  alert("Ha ganado el Jugador 2");
-                  localStorage.setItem("ganadorMemory", "Jugador 2");
-                  lanzarModal("Jugador  hola hola 2");
-
-                } else {
-                  console.log("Empate");
-                }
-              };
               counterCards = 0;
             }
             //Si no hay acierto, damos la vuelta a las cartas en un segundo
