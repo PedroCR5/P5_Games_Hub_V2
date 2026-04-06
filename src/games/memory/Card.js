@@ -36,8 +36,8 @@ function lanzarModal(ganador) {
 
 
   // Ponemos el último ganador en el juego
-  const ultGanador3EnRaya = document.getElementById("ultimoGanadortresEnRaya");
-  ultGanador3EnRaya.innerHTML = "El último ganador ha sido el Jugador 2";
+  const ultGanadorMemory = document.getElementById("ultimoGanadorMemory");
+  ultGanadorMemory.innerHTML = "El último ganador ha sido el Jugador 2";
 }
 function checkMemoryWinners(aciertosPlayer1, aciertosPlayer2) {
   if (aciertosPlayer1 + aciertosPlayer2 == 3) { //!hay que pone 10
