@@ -25,6 +25,7 @@ export function gameMemory() {
 gameMemory();
 clickResetMemory();
 
+//! Seleccionar juego y volver a la pantalla inicial
 selectGameToPlay();// Click para seleccionar el juego
 returnToChangeTheGame();// Click para volver a la pantalla inicial y resetear la partida jugada
 
@@ -66,7 +67,8 @@ Muy bueno el notificar con un tooltip qué jugador está jugando al momento en e
 
 Mejoras Opcionales
 
-El layout es sencillo pero funcional. Las imágenes de los juegos en la pantalla inicial deberían ser más nítidas.
+El layout es sencillo pero funcional. 
+//Las imágenes de los juegos en la pantalla inicial deberían ser más nítidas.
 Debes dejar “respirar” un poco al código para hacerlo más legible: Dejar espacio entre funciones o elementos relacionados.
 ejemplo
 
