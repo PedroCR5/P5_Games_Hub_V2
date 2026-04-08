@@ -40,7 +40,7 @@ function lanzarModal(ganador) {
   ultGanadorMemory.innerHTML = "El último ganador ha sido el Jugador 2";
 }
 function checkMemoryWinners(aciertosPlayer1, aciertosPlayer2) {
-  if (aciertosPlayer1 + aciertosPlayer2 == 3) { //!hay que pone 10
+  if (aciertosPlayer1 + aciertosPlayer2 == 1) { //!hay que pone 10
     console.log("Juego acabado");
     if (aciertosPlayer1 > aciertosPlayer2) {
       localStorage.setItem("ganadorMemory", "Jugador 1");

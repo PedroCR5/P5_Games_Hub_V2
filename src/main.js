@@ -53,6 +53,7 @@ Añadir Reset
 
 Memory
 Me falla el nº de partidas ganadas
+//El Modal sale arriba a la izda
 //En este caso si cambia qué jugador gana la última partida, pero no se guarda el record de cuántas partidas ganadas por cada jugador.
 //Igual que los otros juegos, debo volver a la pantalla principal, porque no tengo como reiniciar el juego desde su propia pantalla
 //reset ok
