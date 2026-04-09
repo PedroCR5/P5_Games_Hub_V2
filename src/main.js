@@ -46,8 +46,9 @@ Cuanto más jugadores escoja, más se extiende el tablero y el input del N° de 
 Añadir Reset
 
 Memory
-El empate que pasa
+//El empate que pasa
 Elegir la foto para el juego
+Probar a resetear localStore para ver como empieza el ganador
 //Me falla el nº de partidas ganadas
 //El Modal sale arriba a la izda
 //En este caso si cambia qué jugador gana la última partida, pero no se guarda el record de cuántas partidas ganadas por cada jugador.

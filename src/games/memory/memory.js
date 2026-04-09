@@ -17,8 +17,10 @@ export function pintarMemory() {
   player2.id = "cursorText2";
   player2.innerText = "Jugador 2";
   let anteriorGanadorMemory = localStorage.getItem("ultimoGanadorMemory");// Recupero el último ganador para ponerlo debajo del tablero
-  let partidasGanadasMemoryJugador1 = localStorage.getItem("partidasGanadasMemoryJugador1a") || 0;
-  let partidasGanadasMemoryJugador2 = localStorage.getItem("partidasGanadasMemoryJugador2a") || 0;
+  console.log(anteriorGanadorMemory);
+
+  let partidasGanadasMemoryJugador1 = localStorage.getItem("partidasGanadasMemoryJugador1") || 0;
+  let partidasGanadasMemoryJugador2 = localStorage.getItem("partidasGanadasMemoryJugador2") || 0;
 
   if (anteriorGanadorMemory != null) {
     let checkAnteriorGanadorMemory = document.getElementById("ultimoGanadormemory");
