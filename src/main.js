@@ -2,8 +2,8 @@ import './style.css';
 import { crearEstructuraPpal } from './structure/structure';
 import { returnToChangeTheGame, selectGameToPlay } from './games/selectGame';
 import { clickResetTresEnRaya, gameTresEnRaya } from './games/tresEnRaya/tresEnRaya';
-import { clickResetMemory, pintarMemory } from './games/memory/memory';
-import { getImages } from './games/memory/infoAPI';
+import { clickResetMemory, gameMemory } from './games/memory/memory';
+//import { getImages } from './games/memory/infoAPI';
 import { gameOca } from './games/laOca/laOca';
 
 crearEstructuraPpal()
@@ -16,12 +16,6 @@ clickResetTresEnRaya();
 gameOca();
 
 //! Juego Memory
-export const accesKey = 'ulcAHukAVcmsmE3YQCJcVOoI_rtjQjdVJzrx7QnswEI';
-export const endPoint = 'https://api.unsplash.com/search/photos';
-export function gameMemory() {
-  pintarMemory(); // Pinto el HTML
-  getImages('dog'); //Voy a infoAPI.js para recoger la info y pinto las Cards en Card.js.
-};
 gameMemory();
 clickResetMemory();
 
@@ -52,7 +46,9 @@ Cuanto más jugadores escoja, más se extiende el tablero y el input del N° de 
 Añadir Reset
 
 Memory
-Me falla el nº de partidas ganadas
+El empate que pasa
+Elegir la foto para el juego
+//Me falla el nº de partidas ganadas
 //El Modal sale arriba a la izda
 //En este caso si cambia qué jugador gana la última partida, pero no se guarda el record de cuántas partidas ganadas por cada jugador.
 //Igual que los otros juegos, debo volver a la pantalla principal, porque no tengo como reiniciar el juego desde su propia pantalla

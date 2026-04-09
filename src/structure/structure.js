@@ -57,8 +57,8 @@ export function crearEstructuraPpal() {
     game.appendChild(title);
     const ultimoGanador = document.createElement("h4");
     ultimoGanador.id = `ultimoGanador${e}`;
-    console.log(`estoy en ${e} `);
-    console.log(ultimoGanador);
+    //console.log(`estoy en ${e} `);
+    //console.log(ultimoGanador);
     ultimoGanador.className = "ultimosGanadores";
     const gameContainer = document.createElement("div");
     gameContainer.id = `${e}Container`;

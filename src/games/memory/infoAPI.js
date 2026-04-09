@@ -1,5 +1,7 @@
 import { createCards } from "./Card";
-import { endPoint, accesKey } from "../../main";
+//import { endPoint, accesKey } from "../../main";
+const accesKey = 'ulcAHukAVcmsmE3YQCJcVOoI_rtjQjdVJzrx7QnswEI';
+const endPoint = 'https://api.unsplash.com/search/photos';
 export let imagesList = {};
 // Traigo la info de la API y llamo a Card.js para pintar las Cards.
 export async function getImages(query) {

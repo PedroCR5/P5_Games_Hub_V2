@@ -1,5 +1,6 @@
-import { gameMemory } from "../main";
+//import { gameMemory } from "../main";
 import { gameOca } from "./laOca/laOca";
+import { gameMemory } from "./memory/memory";
 import { gameTresEnRaya } from "./tresEnRaya/tresEnRaya";
 
 export function selectGameToPlay() { // Entrar en el juego al pulsar en la pantalla principal

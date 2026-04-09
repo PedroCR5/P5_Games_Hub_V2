@@ -1,12 +1,6 @@
-import { gameMemory } from "../../main";
+//import { gameMemory } from "../../main";
+import { getImages } from "./infoAPI";
 
-export function clickResetMemory() {// Función para resetear el memory
-  const resetMemory = document.querySelector(`#memoryReset`);
-  resetMemory.addEventListener('click', () => {
-    console.log("reset memory ok");
-    gameMemory();
-  });
-};
 export function pintarMemory() {
   const memoryTable = document.querySelector(`#memoryTable`);
   memoryTable.innerHTML = "";
@@ -22,13 +16,29 @@ export function pintarMemory() {
   player2.className = "notPlayer";
   player2.id = "cursorText2";
   player2.innerText = "Jugador 2";
-  let anteriorGanadorMemory = localStorage.getItem("ganadorMemory");// Recupero el último ganador para ponerlo debajo del tablero
+  let anteriorGanadorMemory = localStorage.getItem("ultimoGanadorMemory");// Recupero el último ganador para ponerlo debajo del tablero
+  let partidasGanadasMemoryJugador1 = localStorage.getItem("partidasGanadasMemoryJugador1a") || 0;
+  let partidasGanadasMemoryJugador2 = localStorage.getItem("partidasGanadasMemoryJugador2a") || 0;
+
   if (anteriorGanadorMemory != null) {
     let checkAnteriorGanadorMemory = document.getElementById("ultimoGanadormemory");
-    checkAnteriorGanadorMemory.innerHTML = `El último ganador ha sido el ${anteriorGanadorMemory}`;
+    checkAnteriorGanadorMemory.innerHTML = `El último ganador ha sido el ${anteriorGanadorMemory}.<br><br> El JUGADOR 1 ha ganado ${partidasGanadasMemoryJugador1} veces <br>y el JUGADOR 2 ha ganado ${partidasGanadasMemoryJugador2} veces.`;
   };
   //Pintar el boton Reset
   const memoryReset = document.querySelector(`#memoryReset`);;
   memoryReset.innerHTML = "";
   memoryReset.textContent = "Resetea la partida aquí";
+};
+
+export function gameMemory() {
+  pintarMemory(); // Pinto el HTML
+  getImages('dog'); //Voy a infoAPI.js para recoger la info y pinto las Cards en Card.js.
+};
+
+export function clickResetMemory() {// Función para resetear el memory
+  const resetMemory = document.querySelector(`#memoryReset`);
+  resetMemory.addEventListener('click', () => {
+    console.log("reset memory ok");
+    gameMemory();
+  });
 };
