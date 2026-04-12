@@ -44,9 +44,10 @@ export function lanzarModalMemory(ganador) {
   ultGanadorMemory.innerHTML = "El último ganador ha sido el Jugador 2"; */
 }
 
-export function seleccionarTemaMemory() {
+export function seleccionarTemaMemory(temaMemory) {
   //Crear modal cuando seleccionemos
   //Imput para cambiar el tema, y se resetea la partida
-
+  console.log(temaMemory);
+  gameMemory(temaMemory);
 
 }

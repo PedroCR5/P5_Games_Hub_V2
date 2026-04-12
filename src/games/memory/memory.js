@@ -1,4 +1,5 @@
 //import { gameMemory } from "../../main";
+import { seleccionarTemaMemory } from "../modals";
 import { createCards } from "./Card";
 import { getImages } from "./infoAPI";
 
@@ -48,29 +49,36 @@ export function pintarMemory() {
   inputMemoryButton.addEventListener('click', function () {
     const temaMemory = document.getElementById("inputMemory").value;
 
-    changeImagesMemory(temaMemory);
+    //changeImagesMemory(temaMemory);
+    seleccionarTemaMemory(temaMemory);
   });
 
 
 };
 
-export function gameMemory() {
+export function gameMemory(temaMemory) {
   pintarMemory(); // Pinto el HTML
+  //const temaMemoryUltimo = `temaMemory`;
+  getImages(`${temaMemory}`);
+  //getImages('casa');
+  /* if (temaMemory) {
+    getImages(temaMemory);
+  } else {
+    getImages('casa'); */
+}//Voy a infoAPI.js para recoger la info y pinto las Cards en Card.js.
+//getImages('temaMemory'); //Voy a infoAPI.js para recoger la info y pinto las Cards en Card.js.
 
-  getImages('casa'); //Voy a infoAPI.js para recoger la info y pinto las Cards en Card.js.
-  //getImages('temaMemory'); //Voy a infoAPI.js para recoger la info y pinto las Cards en Card.js.
-
-};
-function changeImagesMemory(temaMemory) {
+//};
+/* function changeImagesMemory(temaMemory) {
   console.log(temaMemory);
   //borrar las cards y ponerlas de nuevo
   createCards(temaMemory);
   gameMemory();
-}
+} */
 export function clickResetMemory() {// Función para resetear el memory
   const resetMemory = document.querySelector(`#memoryReset`);
   resetMemory.addEventListener('click', () => {
     console.log("reset memory ok");
-    gameMemory();
+    gameMemory("dog");
   });
 };
