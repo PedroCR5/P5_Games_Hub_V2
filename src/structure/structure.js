@@ -90,21 +90,31 @@ export function crearEstructuraPpal() {
     resetJuego.textContent = "reset";
     game.append(resetJuego);
 
-    //Crear el input del Memory
-    //Pintar el input del tema del juego
-    const memoryTitle = document.getElementById("memoryTitle");
-    const inputMemory = document.createElement("input");
+    if (e == "memory") {
+      //Crear el input del Memory
+      //Pintar el input del tema del juego
+      const memoryTitle = document.getElementById("memoryTitle");
+      const inputMemory = document.createElement("input");
 
-    //memoryTitle.append(inputMemory);
-    //inputMemory.className = "inputMe";
-    inputMemory.id = "inputMemory";
-    inputMemory.placeholder = "Escribe aquí el tema del juego";
+      memoryTitle.append(inputMemory);
+      //inputMemory.className = "inputMe";
+      inputMemory.id = "inputMemory";
+      inputMemory.placeholder = "Escribe aquí el tema del juego";
 
-    const inputMemoryButton = document.createElement("button");
+      const inputMemoryButton = document.createElement("button");
 
-    inputMemoryButton.id = "inputMemoryButton";
-    inputMemoryButton.textContent = "Pulsa para cambiarlo"
-    memoryTitle.append(inputMemoryButton);
+      inputMemoryButton.id = "inputMemoryButton";
+      inputMemoryButton.textContent = "Pulsa para cambiarlo"
+      memoryTitle.append(inputMemoryButton);
+
+      inputMemoryButton.addEventListener('click', function () {
+        const temaMemory = document.getElementById("inputMemory").value;
+
+        //changeImagesMemory(temaMemory);
+        seleccionarTemaMemory(temaMemory);
+      });
+    }
+
 
     // Crear la estructura del modal
     const modalContainer = document.createElement('div');

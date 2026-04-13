@@ -48,12 +48,6 @@ export function pintarMemory() {
   //inputMemoryButton.textContent = "Pulsa para cambiarlo"
   //memoryTitle.append(inputMemoryButton);
 
-  inputMemoryButton.addEventListener('click', function () {
-    const temaMemory = document.getElementById("inputMemory").value;
-
-    //changeImagesMemory(temaMemory);
-    seleccionarTemaMemory(temaMemory);
-  });
 
 
 };
