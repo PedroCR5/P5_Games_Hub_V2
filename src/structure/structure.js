@@ -90,6 +90,22 @@ export function crearEstructuraPpal() {
     resetJuego.textContent = "reset";
     game.append(resetJuego);
 
+    //Crear el input del Memory
+    //Pintar el input del tema del juego
+    const memoryTitle = document.getElementById("memoryTitle");
+    const inputMemory = document.createElement("input");
+
+    //memoryTitle.append(inputMemory);
+    //inputMemory.className = "inputMe";
+    inputMemory.id = "inputMemory";
+    inputMemory.placeholder = "Escribe aquí el tema del juego";
+
+    const inputMemoryButton = document.createElement("button");
+
+    inputMemoryButton.id = "inputMemoryButton";
+    inputMemoryButton.textContent = "Pulsa para cambiarlo"
+    memoryTitle.append(inputMemoryButton);
+
     // Crear la estructura del modal
     const modalContainer = document.createElement('div');
     modalContainer.className = 'modalContainer';

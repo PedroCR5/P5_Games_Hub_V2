@@ -34,17 +34,19 @@ export function pintarMemory() {
   memoryReset.textContent = "Resetea la partida aquí";
 
   //Pintar el input del tema del juego
-  const memoryTitle = document.getElementById("memoryTitle");
-  const inputMemory = document.createElement("input");
-  memoryTitle.append(inputMemory);
-  //inputMemory.className = "inputMe";
-  inputMemory.id = "inputMemory";
-  inputMemory.placeholder = "Escribe aquí el tema del juego";
+  //const memoryTitle = document.getElementById("memoryTitle");
+  //const inputMemory = document.getElementById("inputMemory");
 
-  const inputMemoryButton = document.createElement("button");
-  inputMemoryButton.id = "inputMemoryButton";
-  inputMemoryButton.textContent = "Pulsa para cambiarlo"
-  memoryTitle.append(inputMemoryButton);
+  //memoryTitle.append(inputMemory);
+  //inputMemory.className = "inputMe";
+  //inputMemory.id = "inputMemory";
+  // inputMemory.placeholder = "Escribe aquí el tema del juego";
+
+  const inputMemoryButton = document.getElementById("inputMemoryButton");
+
+  //inputMemoryButton.id = "inputMemoryButton";
+  //inputMemoryButton.textContent = "Pulsa para cambiarlo"
+  //memoryTitle.append(inputMemoryButton);
 
   inputMemoryButton.addEventListener('click', function () {
     const temaMemory = document.getElementById("inputMemory").value;
