@@ -55,6 +55,35 @@ export function crearEstructuraPpal() {
     title.className = `gameTitle`;
     title.id = `${e}Title`;
     game.appendChild(title);
+    if (e === "memory") {
+      //Crear el input del Memory
+      console.log("estoy en memory");
+      console.log(e);
+
+
+      //Pintar el input del tema del juego
+      //const memoryTitle = document.getElementById("memoryTitle");
+      const inputMemory = document.createElement("input");
+      console.log("vamos");
+
+      game.append(inputMemory);
+      inputMemory.className = "inputMe";
+      inputMemory.id = "inputMemory";
+      inputMemory.placeholder = "Escribe aquí el tema del juego";
+
+      const inputMemoryButton = document.createElement("button");
+
+      inputMemoryButton.id = "inputMemoryButton";
+      inputMemoryButton.textContent = "Pulsa para cambiarlo"
+      game.append(inputMemoryButton);
+
+      inputMemoryButton.addEventListener('click', function () {
+        const temaMemory = document.getElementById("inputMemory").value;
+
+        //changeImagesMemory(temaMemory);
+        seleccionarTemaMemory(temaMemory);
+      });
+    }
     const ultimoGanador = document.createElement("h4");
     ultimoGanador.id = `ultimoGanador${e}`;
     //console.log(`estoy en ${e} `);
@@ -90,30 +119,7 @@ export function crearEstructuraPpal() {
     resetJuego.textContent = "reset";
     game.append(resetJuego);
 
-    if (e == "memory") {
-      //Crear el input del Memory
-      //Pintar el input del tema del juego
-      const memoryTitle = document.getElementById("memoryTitle");
-      const inputMemory = document.createElement("input");
 
-      memoryTitle.append(inputMemory);
-      //inputMemory.className = "inputMe";
-      inputMemory.id = "inputMemory";
-      inputMemory.placeholder = "Escribe aquí el tema del juego";
-
-      const inputMemoryButton = document.createElement("button");
-
-      inputMemoryButton.id = "inputMemoryButton";
-      inputMemoryButton.textContent = "Pulsa para cambiarlo"
-      memoryTitle.append(inputMemoryButton);
-
-      inputMemoryButton.addEventListener('click', function () {
-        const temaMemory = document.getElementById("inputMemory").value;
-
-        //changeImagesMemory(temaMemory);
-        seleccionarTemaMemory(temaMemory);
-      });
-    }
 
 
     // Crear la estructura del modal
@@ -139,6 +145,8 @@ export function crearEstructuraPpal() {
     modalDiv.appendChild(modalButton);
     modalContainer.appendChild(modalDiv);
     game.prepend(modalContainer);
+
+
   });
   // Los 3 juegos en la pantalla principal
   const tresEnRayaSelectGame = document.getElementById("tresEnRayaSelect");
@@ -159,4 +167,7 @@ export function crearEstructuraPpal() {
   laOcaTitle.innerText = "JUGAR A LA OCA";
   const memoryTitle = document.getElementById("memoryTitle");
   memoryTitle.innerText = "JUGAR AL MEMORY";
+
+
+
 };

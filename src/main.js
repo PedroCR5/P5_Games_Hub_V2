@@ -48,7 +48,8 @@ Añadir Reset
 Memory
 //El empate que pasa
 //Elegir la foto para el juego
-El input sale de nuevo al resetear
+//El input sale de nuevo al resetear
+Hacer que el input funcione
 Probar a resetear localStore para ver como empieza el ganador
 //Me falla el nº de partidas ganadas
 //El Modal sale arriba a la izda
