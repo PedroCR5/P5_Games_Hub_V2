@@ -1,3 +1,4 @@
+import { changeImagesMemory } from '../games/memory/memory';
 import './structure.css'
 export function crearEstructuraPpal() {
   let appInfo = document.querySelector('#app');
@@ -79,9 +80,9 @@ export function crearEstructuraPpal() {
 
       inputMemoryButton.addEventListener('click', function () {
         const temaMemory = document.getElementById("inputMemory").value;
-
+        changeImagesMemory(temaMemory);
         //changeImagesMemory(temaMemory);
-        seleccionarTemaMemory(temaMemory);
+        //seleccionarTemaMemory(temaMemory);
       });
     }
     const ultimoGanador = document.createElement("h4");

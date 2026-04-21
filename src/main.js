@@ -49,7 +49,10 @@ Memory
 //El empate que pasa
 //Elegir la foto para el juego
 //El input sale de nuevo al resetear
-Hacer que el input funcione
+//Hacer que el input funcione
+//Cuando no pones nada, poner dogs.
+Faltan las puntuaciones
+Leer en algún sitio el tema actual para que se vea.
 Probar a resetear localStore para ver como empieza el ganador
 //Me falla el nº de partidas ganadas
 //El Modal sale arriba a la izda

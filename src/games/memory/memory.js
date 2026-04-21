@@ -78,3 +78,16 @@ export function clickResetMemory() {// Función para resetear el memory
     gameMemory("dog");
   });
 };
+
+export function changeImagesMemory(temaMemory) {
+  console.log("vamos a cambiar las fotos");
+  console.log(`a ${temaMemory}`);
+  if (temaMemory) {
+    gameMemory(`${temaMemory}`);
+
+  } else {
+    gameMemory(`dog`);
+  }
+  const inputUsado = document.getElementById("inputMemory");
+  inputUsado.value = "";
+}
