@@ -3,7 +3,6 @@ import { crearEstructuraPpal } from './structure/structure';
 import { returnToChangeTheGame, selectGameToPlay } from './games/selectGame';
 import { clickResetTresEnRaya, gameTresEnRaya } from './games/tresEnRaya/tresEnRaya';
 import { clickResetMemory, gameMemory } from './games/memory/memory';
-//import { getImages } from './games/memory/infoAPI';
 import { gameOca } from './games/laOca/laOca';
 
 crearEstructuraPpal()
@@ -16,7 +15,8 @@ clickResetTresEnRaya();
 gameOca();
 
 //! Juego Memory
-gameMemory("dog");
+export const temaMemoryInicial = "dog";
+gameMemory(`${temaMemoryInicial}`);
 clickResetMemory();
 
 //! Seleccionar juego y volver a la pantalla inicial
@@ -52,6 +52,8 @@ Memory
 //Hacer que el input funcione
 //Cuando no pones nada, poner dogs.
 Faltan las puntuaciones
+Cuando alguien gana, hay que mantener el tema
+Al ganar no resetea
 Leer en algún sitio el tema actual para que se vea.
 Probar a resetear localStore para ver como empieza el ganador
 //Me falla el nº de partidas ganadas

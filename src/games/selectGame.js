@@ -1,4 +1,5 @@
 //import { gameMemory } from "../main";
+import { temaMemoryInicial } from "../main";
 import { gameOca } from "./laOca/laOca";
 import { gameMemory } from "./memory/memory";
 import { gameTresEnRaya } from "./tresEnRaya/tresEnRaya";
@@ -37,6 +38,6 @@ export function returnToChangeTheGame() { // Volver a la pantalla principal para
   memoryClickOtroJuego.addEventListener('click', () => {
     document.getElementById("memory").style.display = "none";
     document.getElementById("divNav").style.display = "flex";
-    gameMemory();
+    gameMemory(`${temaMemoryInicial}`);
   });
 }

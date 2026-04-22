@@ -18,7 +18,7 @@ export function lanzarModalMemory(ganador) {
   const modalButton = document.getElementById("memoryModalButton");
   modalButton.addEventListener('click', function () {
     modalOn.style.display = "none";
-    gameMemory();//Así reseteo el memory
+    gameMemory(`${temaMemory}`);//Así reseteo el memory
   });
 
   //Leo las partidas ganadas, si no estuviera declarada pone un 0 y luego incrementamos a 1.
