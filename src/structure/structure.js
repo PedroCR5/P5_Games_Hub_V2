@@ -1,118 +1,127 @@
 import { changeImagesMemory } from '../games/memory/memory';
-import './structure.css'
+import './structure.css';
+const temaMemoryClick = "dog";
 export function crearEstructuraPpal() {
   let appInfo = document.querySelector('#app');
   appInfo.innerHTML = "";
+
   const navGames = document.createElement("nav");
   appInfo.append(navGames);
+
   const titleNavDiv = document.createElement("div");
   titleNavDiv.id = "titleNavDiv";
   navGames.append(titleNavDiv);
+
   const titleNavBefore = document.createElement("h1");
-  titleNavDiv.append(titleNavBefore);
   titleNavBefore.innerText = "🎲♦️🎲 ";
   titleNavBefore.id = "titleNavBefore";
   titleNavBefore.className = "titleNavAll";
+  titleNavDiv.append(titleNavBefore);
+
   const titleNav = document.createElement("h1");
-  titleNavDiv.append(titleNav);
   titleNav.innerText = " Games  Hub ";
   titleNav.id = "titleNav";
   titleNav.className = "titleNavAll";
+  titleNavDiv.append(titleNav);
+
   const titleNavAfter = document.createElement("h1");
-  titleNavDiv.append(titleNavAfter);
   titleNavAfter.innerText = "🎲♦️🎲";
   titleNavAfter.id = "titleNavAfter";
   titleNavAfter.className = "titleNavAll";
+  titleNavDiv.append(titleNavAfter);
+
   const pNav = document.createElement("p");
-  navGames.append(pNav);
   pNav.innerText = "¡¡Aquí están tus juegos favoritos, elige a cual quieres jugar!!";
   pNav.id = "pInitialNav";
+  navGames.append(pNav);
+
+
   const divNav = document.createElement("div");
   divNav.id = "divNav";
   navGames.append(divNav);
+
   let gamesInfo = ["tresEnRaya", "laOca", "memory"];
+
   gamesInfo.forEach(e => {
     const divGameDiv = document.createElement("div");
-    const divGame = document.createElement("button");
-    const divGameImg = document.createElement("img");
     divGameDiv.className = "divNavGames";
-    divGame.id = `${e}Select`;
-    divGameImg.id = `${e}SelectImg`;
-    divGame.className = `buttonNavGames`;
-    divGameImg.className = `imgNavGames`;
     divNav.append(divGameDiv);
+
+    const divGame = document.createElement("button");
+    divGame.id = `${e}Select`;
+    divGame.className = `buttonNavGames`;
+    divGame.textContent = `${e}`;
     divGameDiv.append(divGame);
+
+    const divGameImg = document.createElement("img");
+    divGameImg.id = `${e}SelectImg`;
+    divGameImg.className = `imgNavGames`;
     divGameDiv.append(divGameImg);
-    divGame.textContent = `${e}`
+
     const game = document.createElement("section");
     game.id = e;
     appInfo.appendChild(game);
+
     const volverAlNav = document.createElement("button");
     volverAlNav.innerHTML = "Volver a la pantalla principal y jugar a otro juego";
     volverAlNav.id = `${e}ReturnToNav`;
     volverAlNav.className = `returnToNav`;
     game.append(volverAlNav);
+
     const title = document.createElement("h2");
     title.className = `gameTitle`;
     title.id = `${e}Title`;
     game.appendChild(title);
+
     if (e === "memory") {
-      //Crear el input del Memory
-      console.log("estoy en memory");
-      console.log(e);
-
-
-      //Pintar el input del tema del juego
-      //const memoryTitle = document.getElementById("memoryTitle");
+      //Crear y pintar el input para el tema del Memory
       const inputMemory = document.createElement("input");
-      console.log("vamos");
-
-      game.append(inputMemory);
       inputMemory.className = "inputMe";
       inputMemory.id = "inputMemory";
       inputMemory.placeholder = "Escribe aquí el tema del juego";
+      game.append(inputMemory);
 
       const inputMemoryButton = document.createElement("button");
-
       inputMemoryButton.id = "inputMemoryButton";
       inputMemoryButton.textContent = "Pulsa para cambiarlo"
       game.append(inputMemoryButton);
 
       inputMemoryButton.addEventListener('click', function () {
-        const temaMemory = document.getElementById("inputMemory").value;
-        changeImagesMemory(temaMemory);
-        //changeImagesMemory(temaMemory);
-        //seleccionarTemaMemory(temaMemory);
+        const temaMemoryClick = document.getElementById("inputMemory").value;
+        changeImagesMemory(temaMemoryClick);
       });
-    }
+    };
+
     const ultimoGanador = document.createElement("h4");
     ultimoGanador.id = `ultimoGanador${e}`;
-    //console.log(`estoy en ${e} `);
-    //console.log(ultimoGanador);
     ultimoGanador.className = "ultimosGanadores";
+    title.insertAdjacentElement("afterend", ultimoGanador);
+
     const gameContainer = document.createElement("div");
     gameContainer.id = `${e}Container`;
+    game.appendChild(gameContainer);
 
     const gameWinnerContainer = document.createElement("div");
     gameWinnerContainer.id = `${e}WinnerContainer`;
     gameWinnerContainer.className = "gameWinnerContainers";
+    gameContainer.appendChild(gameWinnerContainer);
+
     const gameWinnerContainerSpan = document.createElement("span");
-    const gameWinnerContainerP = document.createElement("p");
     gameWinnerContainerSpan.id = `${e}CloseModal`;
     gameWinnerContainerSpan.textContent = "&Times";
-    gameWinnerContainerP.innerText = "Esto es un modal";
-    const gameTable = document.createElement("div");
-    gameTable.id = `${e}Table`;
-    const gamePlayers = document.createElement("div");
-    gamePlayers.id = `${e}Players`;
-    game.appendChild(gameContainer);
-    gameContainer.appendChild(gameWinnerContainer);
     gameWinnerContainer.appendChild(gameWinnerContainerSpan);
+
+    const gameWinnerContainerP = document.createElement("p");
+    gameWinnerContainerP.innerText = "Esto es un modal";
     gameWinnerContainer.appendChild(gameWinnerContainerP);
 
+    const gameTable = document.createElement("div");
+    gameTable.id = `${e}Table`;
     gameContainer.appendChild(gameTable);
+
+    const gamePlayers = document.createElement("div");
+    gamePlayers.id = `${e}Players`;
     gameContainer.appendChild(gamePlayers);
-    title.insertAdjacentElement("afterend", ultimoGanador);
 
     const resetJuego = document.createElement("button");
     resetJuego.id = `${e}Reset`;
@@ -120,55 +129,53 @@ export function crearEstructuraPpal() {
     resetJuego.textContent = "reset";
     game.append(resetJuego);
 
-
-
-
     // Crear la estructura del modal
     const modalContainer = document.createElement('div');
     modalContainer.className = 'modalContainer';
     modalContainer.id = `${e}ModalContainer`;
+    game.prepend(modalContainer);
 
     const modalDiv = document.createElement('div');
     modalDiv.className = 'modalDiv';
     modalDiv.id = `${e}ModalDiv`;
+    modalContainer.appendChild(modalDiv);
 
     const modalInfo = document.createElement('p');
     modalInfo.className = 'modalInfo';
     modalInfo.id = `${e}ModalInfo`;
+    modalDiv.appendChild(modalInfo);
 
     const modalButton = document.createElement('button');
     modalButton.className = 'modalButton';
     modalButton.id = `${e}ModalButton`;
     modalButton.textContent = 'Aceptar';
-    //modalButton.onclick = closeModal();
-
-    modalDiv.appendChild(modalInfo);
     modalDiv.appendChild(modalButton);
-    modalContainer.appendChild(modalDiv);
-    game.prepend(modalContainer);
-
-
   });
+
   // Los 3 juegos en la pantalla principal
   const tresEnRayaSelectGame = document.getElementById("tresEnRayaSelect");
   tresEnRayaSelectGame.innerText = "JUGAR AL TRES EN RAYA";
+
   const tresEnRayaSelectGameImg = document.getElementById("tresEnRayaSelectImg");
   tresEnRayaSelectGameImg.src = `assets/TresEnRayaFoto.png`;
+
   const laOcaSelectGame = document.getElementById("laOcaSelect");
   laOcaSelectGame.innerText = "JUGAR A LA OCA";
+
   const laOcaSelectGameImg = document.getElementById("laOcaSelectImg");
   laOcaSelectGameImg.src = `assets/OcaFoto.png`;
   const memorySelectGame = document.getElementById("memorySelect");
   memorySelectGame.innerText = "JUGAR AL MEMORY";
+
   const memorySelectGameImg = document.getElementById("memorySelectImg");
   memorySelectGameImg.src = `assets/MemoryFoto.png`;
+
   const tresEnRayaTitleGame = document.getElementById("tresEnRayaTitle");
   tresEnRayaTitleGame.innerText = "JUGAR AL TRES EN RAYA";
+
   const laOcaTitle = document.getElementById("laOcaTitle");
   laOcaTitle.innerText = "JUGAR A LA OCA";
+
   const memoryTitle = document.getElementById("memoryTitle");
   memoryTitle.innerText = "JUGAR AL MEMORY";
-
-
-
 };

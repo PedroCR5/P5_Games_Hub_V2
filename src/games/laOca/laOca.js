@@ -1,10 +1,12 @@
 import './laOca.css';
+
 // Posición de salida para los 4 jugadores
 export let positionPlayer1 = "1";
 export let positionPlayer2 = "1";
 export let positionPlayer3 = "1";
 export let positionPlayer4 = "1";
 export let clavePlayerCurrent = "jugador1";
+
 export const casillasOcaTablero = [
   { id: 1, tipo: "inicio" },
   { id: 2, tipo: "oca", destino: 8 },
@@ -70,6 +72,7 @@ export const casillasOcaTablero = [
   { id: 62, tipo: "normal" },
   { id: 63, tipo: "meta" }
 ];
+
 // Pinto el tablero
 export const printOca = () => {
   const laOcaTable = document.querySelector(`#laOcaTable`);
@@ -82,7 +85,9 @@ export const printOca = () => {
     ["", "", "", "", "", "", "", "", ""],
     ["", "", "", "", "", "", "", "", ""],
   ];
+
   laOcaTable.innerHTML = "";
+
   let counter = "0"; // Voy a usar esto para pintar las casillas.
   for (const fila of arrayOca) {
     for (const columna of fila) {
@@ -97,9 +102,7 @@ export const printOca = () => {
   }
   // Pongo al final del tablero el último ganador de la Oca.
   let anteriorGanadorOca = localStorage.getItem("ganadorOca");
-  console.log(anteriorGanadorOca);
   if (anteriorGanadorOca !== null) {
-    console.log("si no es null Oca");
     let checkUltimoGanadorOca = document.getElementById("ultimoGanadorlaOca");
     checkUltimoGanadorOca.innerHTML = `El último ganador ha sido el ${anteriorGanadorOca}`;
   };
@@ -110,6 +113,7 @@ export const printOca = () => {
 };
 export function createImputNumberPlayers() {
   const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
+
   const numberPlayers = document.createElement("input");
   numberPlayers.value = "0";
   numberPlayers.type = 'number';
@@ -119,15 +123,19 @@ export function createImputNumberPlayers() {
   numberPlayers.placeholder = "Número de jugadores";
   numberPlayers.type = "number";
   laOcaPlayersDiv.append(numberPlayers);
+
   const playersList = document.createElement("ul");
   playersList.id = "playerListId";
   laOcaPlayersDiv.append(playersList);
 }
 export function createPlayerToPlay() {
   const playersList = document.getElementById(`playerListId`);
-  const numberPlayers = document.getElementById("jugadoresOca");
-  const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
   playersList.innerHTML = "";
+
+  const numberPlayers = document.getElementById("jugadoresOca");
+
+  const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
+
   if (numberPlayers.value > 4) {
     numberPlayers.value = 4;
   }
@@ -137,52 +145,65 @@ export function createPlayerToPlay() {
   let i = 0;
   for (i; i < numberPlayers.value; i++) {
     const playerLi = document.createElement("li");
-    const playerName = document.createElement("p");
-    const playerDice = document.createElement("button");
-    playersList.append(playerLi);
-    playerLi.append(playerName);
-    playerLi.append(playerDice);
     playerLi.id = `${i + 1}Li`;
-    playerName.id = `${i + 1}Name`;
-    playerDice.id = `${i + 1}Dice`;
     playerLi.className = `jugador`;
+    playersList.append(playerLi);
+
+    const playerName = document.createElement("p");
+    playerName.id = `${i + 1}Name`;
     playerName.className = `jugadorName`;
-    playerDice.className = `jugadorDice`;
     playerName.textContent = `Jugador ${i + 1}`;
+    playerLi.append(playerName);
+
+    const playerDice = document.createElement("button");
+    playerDice.id = `${i + 1}Dice`;
+    playerDice.className = `jugadorDice`;
+    playerLi.append(playerDice);
+
     //Pintamos la ficha en la posición inicial
     const ficha1 = document.createElement("div");
     ficha1.id = `ficha${i + 1}`;
     ficha1.className = "fichaJugador";
+
     const casillaInicial = document.getElementById("1");
     casillaInicial.append(ficha1);
   }
+
   // Creo los dados que indican el jugador al que le toca
   const diceGif = document.createElement("image");
   diceGif.id = `dados`;
   laOcaPlayersDiv.append(diceGif);
+
   const diceValue = document.createElement("number");
   diceValue.id = `dadoValor`;
   laOcaPlayersDiv.append(diceValue);
 }
 export function moverFichaJugador(n, position, numeroAleatorio) {
-  const casillaAnterior = parseInt(position) - parseInt(numeroAleatorio);;
+  const casillaAnterior = parseInt(position) - parseInt(numeroAleatorio);
+
   const parentDivA = document.getElementById(casillaAnterior);
+
   const childDivA = document.getElementById(`ficha${n}`);
   parentDivA.removeChild(childDivA);
+
   let newPosition = `${position}`;
   if (newPosition > 63) {
     let diferencia = newPosition - 63;
     newPosition = 63 - diferencia;
   }
+
   const result = casillasOcaTablero.find(obj => obj.id == newPosition);
   if (result.destino) {
     newPosition = parseInt(result.destino);
   }
+
   const casillaNewPosition = document.getElementById(newPosition);
+
   const ficha = document.createElement("div");
   ficha.id = `ficha${n}`;
   ficha.className = "fichaJugador";
   casillaNewPosition.append(ficha);
+
   if (newPosition == 63) {
     if (n = 1) {
       alert("Ha ganado el Jugador 1");
@@ -200,19 +221,25 @@ export function moverFichaJugador(n, position, numeroAleatorio) {
   }
   return newPosition;
 };
+
 export function gameOca() {
   document.getElementById("laOcaTable").innerHTML = "";
   document.getElementById("laOcaPlayers").innerHTML = "";
+
   positionPlayer1 = "1";
   positionPlayer2 = "1";
   positionPlayer3 = "1";
   positionPlayer4 = "1";
   clavePlayerCurrent = "jugador1";
+
   let lostTurnPlayers = {
     player1: 0, player2: 0, player3: 0, player4: 0,
   };
+
   printOca();
+
   createImputNumberPlayers();  //Hacer un input nº jugadores y luego con bucle crearlos 
+
   //Pintar los jugadores
   const numberPlayers = document.getElementById("jugadoresOca");
   numberPlayers.addEventListener('input', () => {
@@ -232,16 +259,21 @@ export function gameOca() {
     let lostTurnPlayers = {
       player1: 0, player2: 0, player3: 0, player4: 0,
     };
+
     createPlayerToPlay();
+
     let playersCurrentDice = document.getElementById("1Dice");
     playersCurrentDice.className = "jugadorDice jugadorDiceCurrent";
+
     const playersDice = document.querySelectorAll('.jugadorDice');
     playersDice.forEach(dice => {
       dice.addEventListener('click', () => {
         // Generar un número aleatorio entre 1 y 6
         const numeroAleatorio = Math.floor(Math.random() * 6) + 1;
+
         const diceValue = document.querySelector(`#dadoValor`);
         diceValue.textContent = `Te ha salido un ${numeroAleatorio}`;
+
         //Ver quien tiene el turno y mover su ficha, además comprobamos que no tiene que esperar turnos sin jugar
         if ((dice.id == "1Dice") && (clavePlayerCurrent == "jugador1")) {
           if (lostTurnPlayers.player1 == 0) {

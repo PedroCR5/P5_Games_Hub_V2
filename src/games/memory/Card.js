@@ -8,30 +8,34 @@ let cardSecond = 0;
 export function createCards(imagesList) {
   document.querySelector("#memoryTable").innerHTML = ` `;
   let j = 101;  // Variable j para crear IDs en las cartas
+
   // Pinto todas las cartas
   imagesList.forEach(image => {
     let divContainerCards = document.querySelector("#memoryTable");
     const cardDiv = document.createElement("div");
-    const imgImageDiv = document.createElement("img");
     cardDiv.className = "cardDiv";
+    divContainerCards.appendChild(cardDiv);
+
+    const imgImageDiv = document.createElement("img");
     imgImageDiv.id = j;
     j++;
     imgImageDiv.className = "imgImageDiv notSee";
     imgImageDiv.src = image.urls.regular;
     imgImageDiv.alt = image.alt_description;
     imgImageDiv.loading = "lazy";
-    divContainerCards.appendChild(cardDiv);
     cardDiv.appendChild(imgImageDiv);
   });
   //Meto todas las cartas en allCardDivs
   let allCardDivs = { cards: "0" };
   allCardDivs = document.querySelectorAll('.cardDiv');
+
   //Cursor con Jugador 1 al inicio
   document.addEventListener('mousemove', (event) => {
     // Jugador 1 sigue al cursor
     cursorText1.style.left = `${event.pageX}px`;
     cursorText1.style.top = `${event.pageY + 50}px`;
   });
+
   // Jugador 1 del cursor solo cuando el cursor está en el tablero
   const zoneMemory = document.getElementById('memoryTable')
   zoneMemory.addEventListener('mouseenter', () => {
@@ -40,6 +44,7 @@ export function createCards(imagesList) {
   zoneMemory.addEventListener('mouseleave', () => {
     cursorText1.style.display = 'none';
   })
+
   //Variables para contabilizar aciertos
   let aciertosPlayer1 = 0;
   let aciertosPlayer2 = 0;
@@ -48,14 +53,14 @@ export function createCards(imagesList) {
   let cardFirstID = 0;
   let cardSecondID = 0;
   let checkClickCard = "bien";  // Variable para permitir destapar otra carta
-  allCardDivs.forEach(cardClicked => {
-    //Cuando se hace click en una carta se ejecuta todo
+
+  allCardDivs.forEach(cardClicked => {//Cuando se hace click en una carta se ejecuta todo
     cardClicked.addEventListener('click', () => {
-      // Ejecutar solo si checkClickCard lo permite con el valor "bien"
-      if (checkClickCard === "bien") {
+      if (checkClickCard === "bien") {// Ejecutar solo si checkClickCard lo permite con el valor "bien"
         const imgCambioClase = cardClicked.querySelector('img');
         const el1 = document.getElementById("cursorText1");
         const el2 = document.getElementById("cursorText2");
+
         if ((imgCambioClase.className == "imgImageDiv notSee")) {
           //Verificamos si es la primera carta que se levanta (counterCards=0) o la segunda (counterCards=1)
           if (counterCards == 0) {
@@ -92,6 +97,7 @@ export function createCards(imagesList) {
                 imgCambioClase.className = 'imgImageDiv notSee';
                 let paraOcultarCard = document.getElementById(`${idCard}`);
                 paraOcultarCard.className = "imgImageDiv notSee";
+
                 //Cambiamos el turno al jugador 2 si era el 1
                 if (currentPlayerMemory == "player1") {
                   currentPlayerMemory = "player2";
