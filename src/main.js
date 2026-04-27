@@ -29,6 +29,7 @@ selectOrReturnGame();// Click para seleccionar el juego, click para volver a la 
 //Tengo la estructura del modal hecha, me falta style, display none, colocarlo, y funciones de dispararlo.
 Tres en raya
 Pintar la cuenta de partidas ganadas.
+Al volver a la pantalla ppal y entrar en el juego de nuevo, no va.
 //Ya tiene modal, falta ponerlo guapo.
 //Cambiar el ganador, no lo refresca despues de cada partida ganadora
 //Una vez que gana un jugador, el juego no se detiene, si quedan casillas en blanco en el tablero, cada jugada (sea del jugador que sea), muestra nuevamente el mensae de victoria del jugador ganador. 
