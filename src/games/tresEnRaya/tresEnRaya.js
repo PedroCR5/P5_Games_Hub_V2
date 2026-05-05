@@ -28,6 +28,18 @@ export const printTresEnRaya = () => {//Pintar todo el 3 en raya
     let checkUltimoGanadorTresEnRaya = document.getElementById("ultimoGanadortresEnRaya");
     checkUltimoGanadorTresEnRaya.innerHTML = `El último ganador ha sido el ${anteriorGanadorTresEnRaya}`;
   };
+
+
+  let anteriorGanadortresEnRaya = localStorage.getItem("ultimoGanadorTresEnRaya");// Recupero el último ganador para ponerlo debajo del tablero
+  let partidasGanadastresEnRayaJugador1 = localStorage.getItem("partidasGanadastresEnRayaJugador1") || 0;
+  let partidasGanadastresEnRayaJugador2 = localStorage.getItem("partidasGanadastresEnRayaJugador2") || 0;
+  console.log(partidasGanadastresEnRayaJugador1);
+  console.log(partidasGanadastresEnRayaJugador2);
+
+  if (anteriorGanadortresEnRaya != null) {
+    let checkAnteriorGanadortresEnRaya = document.getElementById("ultimoGanadortresEnRaya");
+    checkAnteriorGanadortresEnRaya.innerHTML = `El último ganador ha sido el ${anteriorGanadortresEnRaya}.<br><br> El JUGADOR 1 ha ganado ${partidasGanadastresEnRayaJugador1} veces <br>y el JUGADOR 2 ha ganado ${partidasGanadastresEnRayaJugador2} veces.`;
+  };
   // Pintar los dos jugadores
   const tresEnRayaPlayersDiv = document.querySelector(`#tresEnRayaPlayers`);
   tresEnRayaPlayersDiv.innerHTML = "";
@@ -105,12 +117,22 @@ export function clickCasillaCheck(cell, player) {// Al hacer click se pone círc
         });
 
         //Leo las partidas ganadas, si no estuviera declarada pone un 0 y luego incrementamos a 1.
-        let partidasGanadasJugador1 = parseInt(localStorage.getItem("partidasGanadasJugador1"), 10) || 0;
+        let partidasGanadasJugador1 = parseInt(localStorage.getItem("partidasGanadastresEnRayaJugador1"), 10) || 0;
         partidasGanadasJugador1++;
         localStorage.setItem("ultimoGanadorTresEnRaya", "Jugador 1");
-        localStorage.setItem("partidasGanadasJugador1", partidasGanadasJugador1.toString());
+        localStorage.setItem("partidasGanadastresEnRayaJugador1", partidasGanadasJugador1.toString());
 
         // Ponemos el último ganador en el juego
+        /*         let anteriorGanadortresEnRaya = localStorage.getItem("ultimoGanadorTresEnRaya");// Recupero el último ganador para ponerlo debajo del tablero
+          let partidasGanadastresEnRayaJugador1 = localStorage.getItem("partidasGanadastresEnRayaJugador1") || 0;
+          let partidasGanadastresEnRayaJugador2 = localStorage.getItem("partidasGanadastresEnRayaJugador2") || 0;
+          console.log(partidasGanadastresEnRayaJugador1);
+          console.log(partidasGanadastresEnRayaJugador2);
+        
+          if (anteriorGanadortresEnRaya != null) {
+            let checkAnteriorGanadortresEnRaya = document.getElementById("ultimoGanadortresEnRaya");
+            checkAnteriorGanadortresEnRaya.innerHTML = `El último ganador ha sido el ${anteriorGanadortresEnRaya}.<br><br> El JUGADOR 1 ha ganado ${partidasGanadastresEnRayaJugador1} veces <br>y el JUGADOR 2 ha ganado ${partidasGanadastresEnRayaJugador2} veces.`;
+          }; */
         const ultGanador3EnRaya = document.getElementById("ultimoGanadortresEnRaya");
         ultGanador3EnRaya.innerHTML = "El último ganador ha sido el Jugador 1";
       }, 500);
@@ -138,10 +160,10 @@ export function clickCasillaCheck(cell, player) {// Al hacer click se pone círc
         });
 
         //Leo las partidas ganadas, si no estuviera declarada pone un 0 y luego incrementamos a 1.
-        let partidasGanadasJugador2 = parseInt(localStorage.getItem("partidasGanadasJugador2"), 10) || 0;
+        let partidasGanadasJugador2 = parseInt(localStorage.getItem("partidasGanadastresEnRayaJugador2"), 10) || 0;
         partidasGanadasJugador2++;
         localStorage.setItem("ultimoGanadorTresEnRaya", "Jugador 2");
-        localStorage.setItem("partidasGanadasJugador2", partidasGanadasJugador2.toString());
+        localStorage.setItem("partidasGanadastresEnRayaJugador2", partidasGanadasJugador2.toString());
 
         // Ponemos el último ganador en el juego
         const ultGanador3EnRaya = document.getElementById("ultimoGanadortresEnRaya");
