@@ -39,6 +39,7 @@ Al volver a la pantalla ppal y entrar en el juego de nuevo, no va.
 
 
 Juego de la Oca:
+Solo gana el jugador 1 en el alert, que además tengo que quitar.
 Tampoco termina y solo guarda en el Local Storage al que gane la primera partida.
 Al ganar uno de los jugadores y no finalizar la partida, el ganador comienza a ir hacia atrás en cada jugada.
 Da siempre que gana el jugador 1 aunque gane cualquier otro. Ya que tienes fichas de colores, deberías identificar los dados y el ganador con el color correspondiente.
