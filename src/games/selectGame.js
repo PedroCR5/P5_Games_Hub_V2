@@ -1,13 +1,15 @@
 import { temaMemoryInicial } from "../main";
 import { gameOca } from "./laOca/laOca";
 import { gameMemory } from "./memory/memory";
-import { gameTresEnRaya } from "./tresEnRaya/tresEnRaya";
+import { gameTresEnRaya, initializationCells, printTresEnRaya } from "./tresEnRaya/tresEnRaya";
 
 export function selectOrReturnGame() { // Entrar en el juego al pulsar en la pantalla principal
   let tresEnRayaClickAJugar = document.getElementById("tresEnRayaSelect");
   tresEnRayaClickAJugar.addEventListener('click', () => {
     document.getElementById("tresEnRaya").style.display = "flex";
     document.getElementById("divNav").style.display = "none";
+    printTresEnRayaTable();
+    //initializationCells();
   });
 
   let laOcaClickAJugar = document.getElementById("laOcaSelect");
@@ -27,7 +29,7 @@ export function selectOrReturnGame() { // Entrar en el juego al pulsar en la pan
   tresEnRayaClickOtroJuego.addEventListener('click', () => {
     document.getElementById("tresEnRaya").style.display = "none";
     document.getElementById("divNav").style.display = "flex";
-    gameTresEnRaya();
+    //gameTresEnRaya();
   });
 
   let laOcaClickOtroJuego = document.getElementById("laOcaReturnToNav");

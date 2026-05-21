@@ -55,7 +55,7 @@ export function initializationCells() {//Inicializar casillas
       player = clickCasillaCheck(cell, player);
     });
   });
-  pintarGanadoresTresEnRaya();
+  //pintarGanadoresTresEnRaya();
 };
 
 export function clickResetTresEnRaya() {// Función para resetear el tres en raya
@@ -64,7 +64,7 @@ export function clickResetTresEnRaya() {// Función para resetear el tres en ray
   resetTresEnRaya.addEventListener('click', () => {
     printTresEnRayaTable();
     initializationCells();
-    pintarGanadoresTresEnRaya();
+    //pintarGanadoresTresEnRaya();
   });
 };
 
@@ -169,6 +169,7 @@ export function clickCasillaCheck(cell, player) {// Al hacer click se pone círc
 
 export function gameTresEnRaya() {//Función para empezar el 3 en raya desde main
   printTresEnRaya();
+  pintarGanadoresTresEnRaya();
   //pintarGanadoresTresEnRaya();
   // Poner cruz o círculo al hacer click en la casilla
   let player = "1";

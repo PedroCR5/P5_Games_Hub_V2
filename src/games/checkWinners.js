@@ -13,16 +13,13 @@ export function checkMemoryWinners(aciertosPlayer1, aciertosPlayer2) {
 }
 
 export function pintarGanadoresTresEnRaya() {
-
   console.log("vamos a poner los ganadores");
-
   let anteriorGanadorTresEnRaya = localStorage.getItem("ultimoGanadorTresEnRaya");
 
   if (anteriorGanadorTresEnRaya != null) {
     let checkUltimoGanadorTresEnRaya = document.getElementById("ultimoGanadortresEnRaya");
     checkUltimoGanadorTresEnRaya.innerHTML = `El último ganador ha sido el ${anteriorGanadorTresEnRaya}`;
   };
-
 
   let anteriorGanadortresEnRaya = localStorage.getItem("ultimoGanadorTresEnRaya");// Recupero el último ganador para ponerlo debajo del tablero
   let partidasGanadastresEnRayaJugador1 = localStorage.getItem("partidasGanadastresEnRayaJugador1") || 0;
