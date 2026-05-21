@@ -4,12 +4,14 @@ import { selectOrReturnGame } from './games/selectGame';
 import { clickResetTresEnRaya, gameTresEnRaya } from './games/tresEnRaya/tresEnRaya';
 import { clickResetMemory, gameMemory } from './games/memory/memory';
 import { gameOca } from './games/laOca/laOca';
+import { pintarGanadoresTresEnRaya } from './games/checkWinners';
 
 crearEstructuraPpal()
 
 //! Juego Tres en Raya
 gameTresEnRaya();
 clickResetTresEnRaya();
+
 
 //! Juego la Oca
 gameOca();
@@ -29,6 +31,8 @@ selectOrReturnGame();// Click para seleccionar el juego, click para volver a la 
 //Tengo la estructura del modal hecha, me falta style, display none, colocarlo, y funciones de dispararlo.
 Tres en raya
 Pintar la cuenta de partidas ganadas.
+La primera vez no lo pone.
+
 Al volver a la pantalla ppal y entrar en el juego de nuevo, no va.
 //Ya tiene modal, falta ponerlo guapo.
 //Cambiar el ganador, no lo refresca despues de cada partida ganadora

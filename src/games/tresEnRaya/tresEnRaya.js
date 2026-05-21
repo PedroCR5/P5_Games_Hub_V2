@@ -1,3 +1,4 @@
+import { pintarGanadoresTresEnRaya } from '../checkWinners';
 import './tresEnRaya.css';
 
 export function printTresEnRayaTable() {// Función para pintar el tablero del tres en  raya
@@ -22,24 +23,7 @@ export function printTresEnRayaTable() {// Función para pintar el tablero del t
 export const printTresEnRaya = () => {//Pintar todo el 3 en raya
   printTresEnRayaTable();
   // Indicar el último ganador del juego.
-  let anteriorGanadorTresEnRaya = localStorage.getItem("ultimoGanadorTresEnRaya");
-
-  if (anteriorGanadorTresEnRaya != null) {
-    let checkUltimoGanadorTresEnRaya = document.getElementById("ultimoGanadortresEnRaya");
-    checkUltimoGanadorTresEnRaya.innerHTML = `El último ganador ha sido el ${anteriorGanadorTresEnRaya}`;
-  };
-
-
-  let anteriorGanadortresEnRaya = localStorage.getItem("ultimoGanadorTresEnRaya");// Recupero el último ganador para ponerlo debajo del tablero
-  let partidasGanadastresEnRayaJugador1 = localStorage.getItem("partidasGanadastresEnRayaJugador1") || 0;
-  let partidasGanadastresEnRayaJugador2 = localStorage.getItem("partidasGanadastresEnRayaJugador2") || 0;
-  console.log(partidasGanadastresEnRayaJugador1);
-  console.log(partidasGanadastresEnRayaJugador2);
-
-  if (anteriorGanadortresEnRaya != null) {
-    let checkAnteriorGanadortresEnRaya = document.getElementById("ultimoGanadortresEnRaya");
-    checkAnteriorGanadortresEnRaya.innerHTML = `El último ganador ha sido el ${anteriorGanadortresEnRaya}.<br><br> El JUGADOR 1 ha ganado ${partidasGanadastresEnRayaJugador1} veces <br>y el JUGADOR 2 ha ganado ${partidasGanadastresEnRayaJugador2} veces.`;
-  };
+  //pintarGanadoresTresEnRaya();
   // Pintar los dos jugadores
   const tresEnRayaPlayersDiv = document.querySelector(`#tresEnRayaPlayers`);
   tresEnRayaPlayersDiv.innerHTML = "";
@@ -71,6 +55,7 @@ export function initializationCells() {//Inicializar casillas
       player = clickCasillaCheck(cell, player);
     });
   });
+  pintarGanadoresTresEnRaya();
 };
 
 export function clickResetTresEnRaya() {// Función para resetear el tres en raya
@@ -79,6 +64,7 @@ export function clickResetTresEnRaya() {// Función para resetear el tres en ray
   resetTresEnRaya.addEventListener('click', () => {
     printTresEnRayaTable();
     initializationCells();
+    pintarGanadoresTresEnRaya();
   });
 };
 
@@ -121,7 +107,7 @@ export function clickCasillaCheck(cell, player) {// Al hacer click se pone círc
         partidasGanadasJugador1++;
         localStorage.setItem("ultimoGanadorTresEnRaya", "Jugador 1");
         localStorage.setItem("partidasGanadastresEnRayaJugador1", partidasGanadasJugador1.toString());
-
+        pintarGanadoresTresEnRaya();
         // Ponemos el último ganador en el juego
         /*         let anteriorGanadortresEnRaya = localStorage.getItem("ultimoGanadorTresEnRaya");// Recupero el último ganador para ponerlo debajo del tablero
           let partidasGanadastresEnRayaJugador1 = localStorage.getItem("partidasGanadastresEnRayaJugador1") || 0;
@@ -133,8 +119,8 @@ export function clickCasillaCheck(cell, player) {// Al hacer click se pone círc
             let checkAnteriorGanadortresEnRaya = document.getElementById("ultimoGanadortresEnRaya");
             checkAnteriorGanadortresEnRaya.innerHTML = `El último ganador ha sido el ${anteriorGanadortresEnRaya}.<br><br> El JUGADOR 1 ha ganado ${partidasGanadastresEnRayaJugador1} veces <br>y el JUGADOR 2 ha ganado ${partidasGanadastresEnRayaJugador2} veces.`;
           }; */
-        const ultGanador3EnRaya = document.getElementById("ultimoGanadortresEnRaya");
-        ultGanador3EnRaya.innerHTML = "El último ganador ha sido el Jugador 1";
+        /*  const ultGanador3EnRaya = document.getElementById("ultimoGanadortresEnRaya");
+         ultGanador3EnRaya.innerHTML = "El último ganador ha sido el Jugador 1"; */
       }, 500);
 
       setTimeout(() => {//Reseteamos el 3 en raya después de la partida
@@ -164,10 +150,10 @@ export function clickCasillaCheck(cell, player) {// Al hacer click se pone círc
         partidasGanadasJugador2++;
         localStorage.setItem("ultimoGanadorTresEnRaya", "Jugador 2");
         localStorage.setItem("partidasGanadastresEnRayaJugador2", partidasGanadasJugador2.toString());
-
+        pintarGanadoresTresEnRaya();
         // Ponemos el último ganador en el juego
-        const ultGanador3EnRaya = document.getElementById("ultimoGanadortresEnRaya");
-        ultGanador3EnRaya.innerHTML = "El último ganador ha sido el Jugador 2";
+        /* const ultGanador3EnRaya = document.getElementById("ultimoGanadortresEnRaya");
+        ultGanador3EnRaya.innerHTML = "El último ganador ha sido el Jugador 2"; */
       }, 500);
 
       setTimeout(() => {//Reseteamos el 3 en raya después de la partida
@@ -183,6 +169,7 @@ export function clickCasillaCheck(cell, player) {// Al hacer click se pone círc
 
 export function gameTresEnRaya() {//Función para empezar el 3 en raya desde main
   printTresEnRaya();
+  //pintarGanadoresTresEnRaya();
   // Poner cruz o círculo al hacer click en la casilla
   let player = "1";
   const cells = document.querySelectorAll('.casilla');
