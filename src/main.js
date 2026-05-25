@@ -30,10 +30,10 @@ selectOrReturnGame();// Click para seleccionar el juego, click para volver a la 
  Pintar todos los ganadores con nº de victoria
 //Tengo la estructura del modal hecha, me falta style, display none, colocarlo, y funciones de dispararlo.
 Tres en raya
-Pintar la cuenta de partidas ganadas.
-La primera vez no lo pone.
+//Pintar la cuenta de partidas ganadas.
+//La primera vez no lo pone.
 
-Al volver a la pantalla ppal y entrar en el juego de nuevo, no va.
+//Al volver a la pantalla ppal y entrar en el juego de nuevo, no va.
 //Ya tiene modal, falta ponerlo guapo.
 //Cambiar el ganador, no lo refresca despues de cada partida ganadora
 //Una vez que gana un jugador, el juego no se detiene, si quedan casillas en blanco en el tablero, cada jugada (sea del jugador que sea), muestra nuevamente el mensae de victoria del jugador ganador. 
@@ -47,7 +47,7 @@ Solo gana el jugador 1 en el alert, que además tengo que quitar.
 Tampoco termina y solo guarda en el Local Storage al que gane la primera partida.
 Al ganar uno de los jugadores y no finalizar la partida, el ganador comienza a ir hacia atrás en cada jugada.
 Da siempre que gana el jugador 1 aunque gane cualquier otro. Ya que tienes fichas de colores, deberías identificar los dados y el ganador con el color correspondiente.
-¿Por qué el tablero es clicable?ñ
+//¿Por qué el tablero es clicable?
 Tampoco hay cómo reiniciar el juego. Debo volver al inicio y seleccionar nuevamente el Juego de la Oca
 Cuanto más jugadores escoja, más se extiende el tablero y el input del N° de jugadores. Cuando juega el primer jugador, el tablero vuelve a su posición normal.
 Añadir Reset

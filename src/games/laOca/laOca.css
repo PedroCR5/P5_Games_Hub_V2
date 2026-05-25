@@ -19,9 +19,7 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-.casillaOca {
-  cursor: pointer;
-}
+
 .oca {
   background-image: url(./assets/pato.png);
   background-repeat: no-repeat;
