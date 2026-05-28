@@ -33,3 +33,33 @@ export function lanzarModalMemory(ganador) {//Disparo el modal
     localStorage.setItem("partidasGanadasMemoryJugador2", partidasGanadasMemoryJugador2.toString());
   }
 };
+
+export function lanzarModalOca(ganador) {
+
+  const modalOn = document.getElementById('laOcaModalContainer');
+  const infoModalP = document.getElementById("laOcaModalInfo");
+  infoModalP.innerText = `El jugador ${ganador} ha ganado esta partida. ¡¡Enhorabuena!!`;
+
+  modalOn.style.display = "flex";
+
+  const modalButton = document.getElementById("laOacModalButton");
+  modalButton.addEventListener('click', function () {//Quito el modal al pulsar el button y reseteo el memory
+    modalOn.style.display = "none";
+
+    //gameMemory(`${nuevoTema}`);
+  });
+
+  //Leo las partidas ganadas, si no estuviera declarada pone un 0 y luego incrementamos a 1.
+  if (ganador == "Jugador 1") {
+    let partidasGanadasLaOcaJugador1 = parseInt(localStorage.getItem("partidasGanadasLaOcaJugador1"), 10) || 0;
+    partidasGanadasLaOcaJugador1++;
+    localStorage.setItem("ultimoGanadorLaOca", "Jugador 1");
+    localStorage.setItem("partidasGanadasLaOcaJugador1", partidasGanadasLaOcaJugador1.toString());
+  }
+  if (ganador == "Jugador 2") {
+    let partidasGanadasLaOcaJugador2 = parseInt(localStorage.getItem("partidasGanadasLaOcaJugador2"), 10) || 0;
+    partidasGanadasLaOcaJugador2++;
+    localStorage.setItem("ultimoGanadorLaOca", "Jugador 2");
+    localStorage.setItem("partidasGanadasLaOcaJugador2", partidasGanadasLaOcaJugador2.toString());
+  }
+}

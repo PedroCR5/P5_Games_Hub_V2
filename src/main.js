@@ -29,7 +29,7 @@ selectOrReturnGame();// Click para seleccionar el juego, click para volver a la 
  En lugar de los alerts del sistema deberías manejar modales propios para interactuar con los usuarios.
  Pintar todos los ganadores con nº de victoria
 //Tengo la estructura del modal hecha, me falta style, display none, colocarlo, y funciones de dispararlo.
-Tres en raya
+//Tres en raya
 //Pintar la cuenta de partidas ganadas.
 //La primera vez no lo pone.
 

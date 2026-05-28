@@ -101,11 +101,11 @@ export const printOca = () => {
     }
   }
   // Pongo al final del tablero el último ganador de la Oca.
-  let anteriorGanadorOca = localStorage.getItem("ganadorOca");
-  if (anteriorGanadorOca !== null) {
-    let checkUltimoGanadorOca = document.getElementById("ultimoGanadorlaOca");
-    checkUltimoGanadorOca.innerHTML = `El último ganador ha sido el ${anteriorGanadorOca}`;
-  };
+  /*   let anteriorGanadorOca = localStorage.getItem("ganadorOca");
+    if (anteriorGanadorOca !== null) {
+      let checkUltimoGanadorOca = document.getElementById("ultimoGanadorlaOca");
+      checkUltimoGanadorOca.innerHTML = `El último ganador ha sido el ${anteriorGanadorOca}`;
+    }; */
   //Pintar el boton Reset
   const laOcaReset = document.querySelector(`#laOcaReset`);;
   laOcaReset.innerHTML = "";
