@@ -63,3 +63,4 @@ export function lanzarModalOca(ganador) {
     localStorage.setItem("partidasGanadasLaOcaJugador2", partidasGanadasLaOcaJugador2.toString());
   }
 }
+

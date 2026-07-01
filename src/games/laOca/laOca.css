@@ -78,7 +78,7 @@
   border: solid 1px red;
 }
 #jugadoresOca {
-  min-width: 150px;
+  min-width: 250px;
 }
 .jugadorDice {
   background-image: url(./assets/dice.png);
@@ -122,4 +122,17 @@
 #ficha4 {
   border: 5px darkorange solid;
   background-color: yellow;
+}
+
+.numberPlayersLaOca {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  border-radius: 50%;
+  border: 5px darkorange solid;
+  background-color: yellow;
+  font-size: xx-large;
+}
+#textPlayersContainer {
+  font-size: xx-large;
 }

@@ -6,6 +6,8 @@ export let positionPlayer2 = "1";
 export let positionPlayer3 = "1";
 export let positionPlayer4 = "1";
 export let clavePlayerCurrent = "jugador1";
+export let numberPlayersLaOca = null;
+console.log(numberPlayersLaOca);
 
 export const casillasOcaTablero = [
   { id: 1, tipo: "inicio" },
@@ -117,10 +119,10 @@ export function createImputNumberPlayers() {
   const numberPlayers = document.createElement("input");
   numberPlayers.value = "0";
   numberPlayers.type = 'number';
-  numberPlayers.min = "2";
+  numberPlayers.min = "1";
   numberPlayers.max = "4";
   numberPlayers.id = "jugadoresOca";
-  numberPlayers.placeholder = "Número de jugadores";
+  numberPlayers.placeholder = "Elije el número de jugadores entre 1 y 4";
   numberPlayers.type = "number";
   laOcaPlayersDiv.append(numberPlayers);
 
@@ -133,7 +135,22 @@ export function createPlayerToPlay() {
   playersList.innerHTML = "";
 
   const numberPlayers = document.getElementById("jugadoresOca");
+  //!traer el valor del nº jugadores
+  const buttonsPlayers = document.querySelectorAll('.numberPlayersLaOca');
+  buttonsPlayers.forEach(button => {
+    button.addEventListener('click', function () {
+      // Obtenemos el valor del botón pulsado
+      const value = this.value;
+      console.log("Valor del botón:", value);
+    });
+  });
+  //! Pasar el valor del nº jugadores al input
+  numberPlayers.value = 2;
+  console.log(numberPlayersLaOca);
+  console.log("value");
 
+
+  //numberPlayers.value = "numberPlayersLaOca";
   const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
 
   if (numberPlayers.value > 4) {
@@ -222,6 +239,38 @@ export function moverFichaJugador(n, position, numeroAleatorio) {
   return newPosition;
 };
 
+/* export function numPlayersLaOca(num) {
+  //const numero=num;
+  console.log(num);
+  const numberPlayersLaOca = num;
+  console.log(numberPlayersLaOca);
+
+} */
+console.log(numberPlayersLaOca);
+
+export function elegirNumeroJugadoresOca() {
+  console.log("dentro1");
+
+  const laOcaTitle = document.getElementById("laOcaTitle");
+  const buttonPlayersContainer = document.createElement("div");
+  buttonPlayersContainer.id = `buttonPlayersContainer`;
+  laOcaTitle.after(buttonPlayersContainer);
+  const textPlayersContainer = document.createElement("h4");
+  textPlayersContainer.id = `textPlayersContainer`;
+  textPlayersContainer.textContent = "Antes de empezar, elige el número de jugadores";
+  buttonPlayersContainer.appendChild(textPlayersContainer);
+  for (let i = 1; i <= 4; i++) {
+    const button = document.createElement("button");
+    button.textContent = i;
+    button.id = i; // Número de jugadores en el botón
+    button.value = i;
+    button.className = "numberPlayersLaOca";
+    //button.onclick = () => numPlayersLaOca(i);
+    buttonPlayersContainer.appendChild(button);
+  }
+
+}
+
 export function gameOca() {
   document.getElementById("laOcaTable").innerHTML = "";
   document.getElementById("laOcaPlayers").innerHTML = "";
@@ -237,9 +286,13 @@ export function gameOca() {
   };
 
   printOca();
+  console.log("antes");
 
-  createImputNumberPlayers();  //Hacer un input nº jugadores y luego con bucle crearlos 
+  elegirNumeroJugadoresOca();
+  console.log("despues");
 
+  //Hacer un input nº jugadores y luego con bucle crearlos 
+  createImputNumberPlayers();
   //Pintar los jugadores
   const numberPlayers = document.getElementById("jugadoresOca");
   numberPlayers.addEventListener('input', () => {
