@@ -113,28 +113,31 @@ export const printOca = () => {
   laOcaReset.innerHTML = "";
   laOcaReset.textContent = "Resetea la partida aquí";
 };
-export function createImputNumberPlayers() {
-  const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
+//export function createImputNumberPlayers() {
+//const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
 
-  const numberPlayers = document.createElement("input");
-  numberPlayers.value = "0";
-  numberPlayers.type = 'number';
-  numberPlayers.min = "1";
-  numberPlayers.max = "4";
-  numberPlayers.id = "jugadoresOca";
-  numberPlayers.placeholder = "Elije el número de jugadores entre 1 y 4";
-  numberPlayers.type = "number";
-  laOcaPlayersDiv.append(numberPlayers);
+/* const numberPlayers = document.createElement("input");
+numberPlayers.value = "0";
+numberPlayers.type = 'number';
+numberPlayers.min = "1";
+numberPlayers.max = "4";
+numberPlayers.id = "jugadoresOca";
+numberPlayers.placeholder = "Elije el número de jugadores entre 1 y 4";
+numberPlayers.type = "number"; */
+//laOcaPlayersDiv.append(numberPlayers);
+
+
+//}
+export function createPlayerToPlay() {
+  const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
 
   const playersList = document.createElement("ul");
   playersList.id = "playerListId";
   laOcaPlayersDiv.append(playersList);
-}
-export function createPlayerToPlay() {
-  const playersList = document.getElementById(`playerListId`);
-  playersList.innerHTML = "";
+  //const playersList = document.getElementById(`playerListId`);
+  //playersList.innerHTML = "";
 
-  const numberPlayers = document.getElementById("jugadoresOca");
+  //const numberPlayers = document.getElementById("jugadoresOca");
   //!traer el valor del nº jugadores
   const buttonsPlayers = document.querySelectorAll('.numberPlayersLaOca');
   buttonsPlayers.forEach(button => {
@@ -145,13 +148,33 @@ export function createPlayerToPlay() {
     });
   });
   //! Pasar el valor del nº jugadores al input
-  numberPlayers.value = 2;
-  console.log(numberPlayersLaOca);
-  console.log("value");
+  const numberPlayers = "2";
+  let numberPlayersIs = "0";
+
+  let allPlayersLaOca = { players: "0" };
+  allPlayersLaOca = document.querySelectorAll('.numberPlayersLaOca');
+
+  allPlayersLaOca.forEach(playersClicked => {//Cuando se hace click en una carta se ejecuta todo
+    playersClicked.addEventListener('click', () => {
+      console.log("se ha pulsado un numero de jugadores");
+      console.log(`el número de jugadores es ${playersClicked.id}`);
+      numberPlayersIs = playersClicked.id;
+      console.log(numberPlayersIs);
+    })
+  });
+  //console.log(`El valor de numberPlayers.value es ${numberPlayers} `);
+  //console.log(`El valor de numberPlayersIs.value es ${numberPlayersIs} `);
+
+  //numberPlayers.value = numberPlayersIs.value;
+  //console.log(`El valor de numberPlayers.value es ${numberPlayers.value} `);
+  // console.log(`El valor de numberPlayersIs.value es ${numberPlayersIs} `);
+
+  //console.log(numberPlayersLaOca);
+  // console.log("value");
 
 
   //numberPlayers.value = "numberPlayersLaOca";
-  const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
+  //const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
 
   if (numberPlayers.value > 4) {
     numberPlayers.value = 4;
@@ -195,6 +218,7 @@ export function createPlayerToPlay() {
   diceValue.id = `dadoValor`;
   laOcaPlayersDiv.append(diceValue);
 }
+
 export function moverFichaJugador(n, position, numeroAleatorio) {
   const casillaAnterior = parseInt(position) - parseInt(numeroAleatorio);
 
@@ -249,7 +273,7 @@ export function moverFichaJugador(n, position, numeroAleatorio) {
 console.log(numberPlayersLaOca);
 
 export function elegirNumeroJugadoresOca() {
-  console.log("dentro1");
+  //console.log("dentro1");
 
   const containerVolverAndTitle = document.getElementById("containerVolverAndTitle");
   const buttonPlayersContainer = document.createElement("div");
@@ -269,7 +293,22 @@ export function elegirNumeroJugadoresOca() {
     buttonPlayersContainer.appendChild(button);
   }
 
+  //Meto todos los botones de seleccionar jugadores en allPlayersLaOca
+  /*   let numberPlayersIs = "0";
+    let allPlayersLaOca = { players: "0" };
+    allPlayersLaOca = document.querySelectorAll('.numberPlayersLaOca');
+  
+    allPlayersLaOca.forEach(playersClicked => {//Cuando se hace click en una carta se ejecuta todo
+      playersClicked.addEventListener('click', () => {
+        console.log("se ha pulsado un numero de jugadores");
+        console.log(`el número de jugadores es ${playersClicked.id}`);
+        numberPlayersIs = playersClicked.id;
+        console.log(numberPlayersIs);
+      })
+    }); */
+  //console.log(`numberPlayersIs`);
 }
+
 
 export function gameOca() {
   document.getElementById("laOcaTable").innerHTML = "";
@@ -292,95 +331,119 @@ export function gameOca() {
   console.log("despues");
 
   //Hacer un input nº jugadores y luego con bucle crearlos 
-  createImputNumberPlayers();
+  //createImputNumberPlayers();
   //Pintar los jugadores
-  const numberPlayers = document.getElementById("jugadoresOca");
-  numberPlayers.addEventListener('input', () => {
-    //Si pulsamos de nuevo en número de jugadores, borramos la partida para empezar una nueva.
-    const dadoAnterior = document.getElementById("dadoValor");
-    if (dadoAnterior) { dadoAnterior.remove(); };
-    let j = 0;
-    for (j; j < 4; j++) {
-      const elemento = document.getElementById(`ficha${j + 1}`);
-      if (elemento) { elemento.remove(); };
-    }
-    positionPlayer1 = "1";
-    positionPlayer2 = "1";
-    positionPlayer3 = "1";
-    positionPlayer4 = "1";
-    clavePlayerCurrent = "jugador1";
-    let lostTurnPlayers = {
-      player1: 0, player2: 0, player3: 0, player4: 0,
-    };
+  //Meto todos los botones de seleccionar jugadores en allPlayersLaOca
+  let numberPlayersIs = "0";
+  let allPlayersLaOca = { players: "0" };
+  allPlayersLaOca = document.querySelectorAll('.numberPlayersLaOca');
 
-    createPlayerToPlay();
+  allPlayersLaOca.forEach(playersClicked => {//Cuando se hace click en una carta se ejecuta todo
+    playersClicked.addEventListener('click', () => {
+      console.log("se ha pulsado un numero de jugadores");
+      console.log(`el número de jugadores es ${playersClicked.id}`);
+      numberPlayersIs = playersClicked.id;
+      console.log(numberPlayersIs);
 
-    let playersCurrentDice = document.getElementById("1Dice");
-    playersCurrentDice.className = "jugadorDice jugadorDiceCurrent";
+      //Si pulsamos de nuevo en número de jugadores, borramos la partida para empezar una nueva.
+      const dadoAnterior = document.getElementById("dadoValor");
+      if (dadoAnterior) { dadoAnterior.remove(); };
+      let j = 0;
+      for (j; j < 4; j++) {
+        const elemento = document.getElementById(`ficha${j + 1}`);
+        if (elemento) { elemento.remove(); };
+      }
+      positionPlayer1 = "1";
+      positionPlayer2 = "1";
+      positionPlayer3 = "1";
+      positionPlayer4 = "1";
+      clavePlayerCurrent = "jugador1";
+      let lostTurnPlayers = {
+        player1: 0, player2: 0, player3: 0, player4: 0,
+      };
 
-    const playersDice = document.querySelectorAll('.jugadorDice');
-    playersDice.forEach(dice => {
-      dice.addEventListener('click', () => {
-        // Generar un número aleatorio entre 1 y 6
-        const numeroAleatorio = Math.floor(Math.random() * 6) + 1;
+      createPlayerToPlay();
 
-        const diceValue = document.querySelector(`#dadoValor`);
-        diceValue.textContent = `Te ha salido un ${numeroAleatorio}`;
+      let playersCurrentDice = document.getElementById("1Dice");
+      playersCurrentDice.className = "jugadorDice jugadorDiceCurrent";
 
-        //Ver quien tiene el turno y mover su ficha, además comprobamos que no tiene que esperar turnos sin jugar
-        if ((dice.id == "1Dice") && (clavePlayerCurrent == "jugador1")) {
-          if (lostTurnPlayers.player1 == 0) {
-            positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
-            positionPlayer1 = moverFichaJugador(1, positionPlayer1, numeroAleatorio);
-            //Turnos perdidos
-            if (positionPlayer1 == 19) {
-              lostTurnPlayers.player1 = 1;
-            } else if (positionPlayer1 == 30) {
-              lostTurnPlayers.player1 = 3;
-            } else if (positionPlayer1 == 41) {
-              lostTurnPlayers.player1 = 2;
-            }
-            // Comprobar posición para cambiar el turno al siguiente jugador
-            if (positionPlayer1 == 8 || positionPlayer1 == 12 || positionPlayer1 == 13 || positionPlayer1 == 5 || positionPlayer1 == 17 || positionPlayer1 == 22 || positionPlayer1 == 28 || positionPlayer1 == 48 || positionPlayer1 == 34 || positionPlayer1 == 40 || positionPlayer1 == 46 || positionPlayer1 == 51 || positionPlayer1 == 26 || positionPlayer1 == 60) {
-              clavePlayerCurrent = "jugador1";
+      const playersDice = document.querySelectorAll('.jugadorDice');
+      playersDice.forEach(dice => {
+        dice.addEventListener('click', () => {
+          // Generar un número aleatorio entre 1 y 6
+          const numeroAleatorio = Math.floor(Math.random() * 6) + 1;
+
+          const diceValue = document.querySelector(`#dadoValor`);
+          diceValue.textContent = `Te ha salido un ${numeroAleatorio}`;
+
+          //Ver quien tiene el turno y mover su ficha, además comprobamos que no tiene que esperar turnos sin jugar
+          if ((dice.id == "1Dice") && (clavePlayerCurrent == "jugador1")) {
+            if (lostTurnPlayers.player1 == 0) {
+              positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
+              positionPlayer1 = moverFichaJugador(1, positionPlayer1, numeroAleatorio);
+              //Turnos perdidos
+              if (positionPlayer1 == 19) {
+                lostTurnPlayers.player1 = 1;
+              } else if (positionPlayer1 == 30) {
+                lostTurnPlayers.player1 = 3;
+              } else if (positionPlayer1 == 41) {
+                lostTurnPlayers.player1 = 2;
+              }
+              // Comprobar posición para cambiar el turno al siguiente jugador
+              if (positionPlayer1 == 8 || positionPlayer1 == 12 || positionPlayer1 == 13 || positionPlayer1 == 5 || positionPlayer1 == 17 || positionPlayer1 == 22 || positionPlayer1 == 28 || positionPlayer1 == 48 || positionPlayer1 == 34 || positionPlayer1 == 40 || positionPlayer1 == 46 || positionPlayer1 == 51 || positionPlayer1 == 26 || positionPlayer1 == 60) {
+                clavePlayerCurrent = "jugador1";
+              } else {
+                let playersCurrentDice1 = document.getElementById("1Dice");
+                playersCurrentDice1.className = "jugadorDice";
+                if (playersDice.length > 1) {
+                  clavePlayerCurrent = "jugador2";
+                  let playersCurrentDice2 = document.getElementById("2Dice");
+                  playersCurrentDice2.className = "jugadorDiceCurrent";
+                } else {
+                  clavePlayerCurrent = "jugador1";
+                  let playersCurrentDice1 = document.getElementById("1Dice");
+                  playersCurrentDice1.className = "jugadorDiceCurrent";
+                }
+              };
             } else {
+              lostTurnPlayers.player1--;
+              clavePlayerCurrent = "jugador2";
+              let playersCurrentDice2 = document.getElementById("2Dice");
+              playersCurrentDice2.className = "jugadorDiceCurrent";
               let playersCurrentDice1 = document.getElementById("1Dice");
               playersCurrentDice1.className = "jugadorDice";
-              if (playersDice.length > 1) {
-                clavePlayerCurrent = "jugador2";
-                let playersCurrentDice2 = document.getElementById("2Dice");
-                playersCurrentDice2.className = "jugadorDiceCurrent";
-              } else {
-                clavePlayerCurrent = "jugador1";
-                let playersCurrentDice1 = document.getElementById("1Dice");
-                playersCurrentDice1.className = "jugadorDiceCurrent";
-              }
-            };
-          } else {
-            lostTurnPlayers.player1--;
-            clavePlayerCurrent = "jugador2";
-            let playersCurrentDice2 = document.getElementById("2Dice");
-            playersCurrentDice2.className = "jugadorDiceCurrent";
-            let playersCurrentDice1 = document.getElementById("1Dice");
-            playersCurrentDice1.className = "jugadorDice";
-            return;
-          }
-        } else if ((dice.id == "2Dice") && (clavePlayerCurrent == "jugador2")) {
-          if (lostTurnPlayers.player2 == 0) {
-            positionPlayer2 = parseInt(positionPlayer2) + parseInt(numeroAleatorio);
-            positionPlayer2 = moverFichaJugador(2, positionPlayer2, numeroAleatorio);
-            //Turnos perdidos
-            if (positionPlayer2 == 19) {
-              lostTurnPlayers.player2 = 1;
-            } else if (positionPlayer2 == 30) {
-              lostTurnPlayers.player2 = 3;
-            } else if (positionPlayer2 == 41) {
-              lostTurnPlayers.player2 = 2;
+              return;
             }
-            // Comprobar posición para cambiar el turno al siguiente jugador
-            if (positionPlayer2 == 8 || positionPlayer2 == 12 || positionPlayer2 == 13 || positionPlayer2 == 5 || positionPlayer2 == 17 || positionPlayer2 == 22 || positionPlayer2 == 28 || positionPlayer2 == 48 || positionPlayer2 == 34 || positionPlayer2 == 40 || positionPlayer2 == 46 || positionPlayer2 == 51 || positionPlayer2 == 26 || positionPlayer2 == 60) {
-              clavePlayerCurrent = "jugador2";
+          } else if ((dice.id == "2Dice") && (clavePlayerCurrent == "jugador2")) {
+            if (lostTurnPlayers.player2 == 0) {
+              positionPlayer2 = parseInt(positionPlayer2) + parseInt(numeroAleatorio);
+              positionPlayer2 = moverFichaJugador(2, positionPlayer2, numeroAleatorio);
+              //Turnos perdidos
+              if (positionPlayer2 == 19) {
+                lostTurnPlayers.player2 = 1;
+              } else if (positionPlayer2 == 30) {
+                lostTurnPlayers.player2 = 3;
+              } else if (positionPlayer2 == 41) {
+                lostTurnPlayers.player2 = 2;
+              }
+              // Comprobar posición para cambiar el turno al siguiente jugador
+              if (positionPlayer2 == 8 || positionPlayer2 == 12 || positionPlayer2 == 13 || positionPlayer2 == 5 || positionPlayer2 == 17 || positionPlayer2 == 22 || positionPlayer2 == 28 || positionPlayer2 == 48 || positionPlayer2 == 34 || positionPlayer2 == 40 || positionPlayer2 == 46 || positionPlayer2 == 51 || positionPlayer2 == 26 || positionPlayer2 == 60) {
+                clavePlayerCurrent = "jugador2";
+              } else {
+                if (playersDice.length > 2) {
+                  clavePlayerCurrent = "jugador3";
+                  let playersCurrentDice3 = document.getElementById("3Dice");
+                  playersCurrentDice3.className = "jugadorDiceCurrent";
+                } else {
+                  clavePlayerCurrent = "jugador1";
+                  let playersCurrentDice1 = document.getElementById("1Dice");
+                  playersCurrentDice1.className = "jugadorDiceCurrent";
+                }
+                let playersCurrentDice2 = document.getElementById("2Dice");
+                playersCurrentDice2.className = "jugadorDice";
+              };
             } else {
+              lostTurnPlayers.player2--;
               if (playersDice.length > 2) {
                 clavePlayerCurrent = "jugador3";
                 let playersCurrentDice3 = document.getElementById("3Dice");
@@ -392,38 +455,38 @@ export function gameOca() {
               }
               let playersCurrentDice2 = document.getElementById("2Dice");
               playersCurrentDice2.className = "jugadorDice";
-            };
-          } else {
-            lostTurnPlayers.player2--;
-            if (playersDice.length > 2) {
-              clavePlayerCurrent = "jugador3";
-              let playersCurrentDice3 = document.getElementById("3Dice");
-              playersCurrentDice3.className = "jugadorDiceCurrent";
-            } else {
-              clavePlayerCurrent = "jugador1";
-              let playersCurrentDice1 = document.getElementById("1Dice");
-              playersCurrentDice1.className = "jugadorDiceCurrent";
+              return;
             }
-            let playersCurrentDice2 = document.getElementById("2Dice");
-            playersCurrentDice2.className = "jugadorDice";
-            return;
-          }
-        } else if ((dice.id == "3Dice") && (clavePlayerCurrent == "jugador3")) {
-          if (lostTurnPlayers.player3 == 0) {
-            positionPlayer3 = parseInt(positionPlayer3) + parseInt(numeroAleatorio);
-            positionPlayer3 = moverFichaJugador(3, positionPlayer3, numeroAleatorio);
-            //Turnos perdidos
-            if (positionPlayer3 == 19) {
-              lostTurnPlayers.player3 = 1;
-            } else if (positionPlayer3 == 30) {
-              lostTurnPlayers.player3 = 3;
-            } else if (positionPlayer3 == 41) {
-              lostTurnPlayers.player3 = 2;
-            }
-            // Comprobar posición para cambiar el turno al siguiente jugador
-            if (positionPlayer3 == 8 || positionPlayer3 == 12 || positionPlayer3 == 13 || positionPlayer3 == 5 || positionPlayer3 == 17 || positionPlayer3 == 22 || positionPlayer3 == 28 || positionPlayer3 == 48 || positionPlayer3 == 34 || positionPlayer3 == 40 || positionPlayer3 == 46 || positionPlayer3 == 51 || positionPlayer3 == 26 || positionPlayer3 == 60) {
-              clavePlayerCurrent = "jugador3";
+          } else if ((dice.id == "3Dice") && (clavePlayerCurrent == "jugador3")) {
+            if (lostTurnPlayers.player3 == 0) {
+              positionPlayer3 = parseInt(positionPlayer3) + parseInt(numeroAleatorio);
+              positionPlayer3 = moverFichaJugador(3, positionPlayer3, numeroAleatorio);
+              //Turnos perdidos
+              if (positionPlayer3 == 19) {
+                lostTurnPlayers.player3 = 1;
+              } else if (positionPlayer3 == 30) {
+                lostTurnPlayers.player3 = 3;
+              } else if (positionPlayer3 == 41) {
+                lostTurnPlayers.player3 = 2;
+              }
+              // Comprobar posición para cambiar el turno al siguiente jugador
+              if (positionPlayer3 == 8 || positionPlayer3 == 12 || positionPlayer3 == 13 || positionPlayer3 == 5 || positionPlayer3 == 17 || positionPlayer3 == 22 || positionPlayer3 == 28 || positionPlayer3 == 48 || positionPlayer3 == 34 || positionPlayer3 == 40 || positionPlayer3 == 46 || positionPlayer3 == 51 || positionPlayer3 == 26 || positionPlayer3 == 60) {
+                clavePlayerCurrent = "jugador3";
+              } else {
+                if (playersDice.length == 4) {
+                  clavePlayerCurrent = "jugador4";
+                  let playersCurrentDice4 = document.getElementById("4Dice");
+                  playersCurrentDice4.className = "jugadorDiceCurrent";
+                } else {
+                  clavePlayerCurrent = "jugador1";
+                  let playersCurrentDice1 = document.getElementById("1Dice");
+                  playersCurrentDice1.className = "jugadorDiceCurrent";
+                }
+                let playersCurrentDice3 = document.getElementById("3Dice");
+                playersCurrentDice3.className = "jugadorDice";
+              };
             } else {
+              lostTurnPlayers.player3--;
               if (playersDice.length == 4) {
                 clavePlayerCurrent = "jugador4";
                 let playersCurrentDice4 = document.getElementById("4Dice");
@@ -435,59 +498,49 @@ export function gameOca() {
               }
               let playersCurrentDice3 = document.getElementById("3Dice");
               playersCurrentDice3.className = "jugadorDice";
-            };
-          } else {
-            lostTurnPlayers.player3--;
-            if (playersDice.length == 4) {
-              clavePlayerCurrent = "jugador4";
-              let playersCurrentDice4 = document.getElementById("4Dice");
-              playersCurrentDice4.className = "jugadorDiceCurrent";
-            } else {
-              clavePlayerCurrent = "jugador1";
-              let playersCurrentDice1 = document.getElementById("1Dice");
-              playersCurrentDice1.className = "jugadorDiceCurrent";
+              return;
             }
-            let playersCurrentDice3 = document.getElementById("3Dice");
-            playersCurrentDice3.className = "jugadorDice";
-            return;
           }
-        }
-        else if ((dice.id == "4Dice") && (clavePlayerCurrent == "jugador4")) {
-          if (lostTurnPlayers.player4 == 0) {
-            positionPlayer4 = parseInt(positionPlayer4) + parseInt(numeroAleatorio);
-            positionPlayer4 = moverFichaJugador(4, positionPlayer4, numeroAleatorio);
-            //Turnos perdidos
-            if (positionPlayer4 == 19) {
-              lostTurnPlayers.player4 = 1;
-            } else if (positionPlayer4 == 30) {
-              lostTurnPlayers.player4 = 3;
-            } else if (positionPlayer4 == 41) {
-              lostTurnPlayers.player4 = 2;
-            }
-            // Comprobar posición para cambiar el turno al siguiente jugador
-            if (positionPlayer4 == 8 || positionPlayer4 == 12 || positionPlayer4 == 13 || positionPlayer4 == 5 || positionPlayer4 == 17 || positionPlayer4 == 22 || positionPlayer4 == 28 || positionPlayer4 == 48 || positionPlayer4 == 34 || positionPlayer4 == 40 || positionPlayer4 == 46 || positionPlayer4 == 51 || positionPlayer4 == 26 || positionPlayer4 == 60) {
-              clavePlayerCurrent = "jugador4";
+          else if ((dice.id == "4Dice") && (clavePlayerCurrent == "jugador4")) {
+            if (lostTurnPlayers.player4 == 0) {
+              positionPlayer4 = parseInt(positionPlayer4) + parseInt(numeroAleatorio);
+              positionPlayer4 = moverFichaJugador(4, positionPlayer4, numeroAleatorio);
+              //Turnos perdidos
+              if (positionPlayer4 == 19) {
+                lostTurnPlayers.player4 = 1;
+              } else if (positionPlayer4 == 30) {
+                lostTurnPlayers.player4 = 3;
+              } else if (positionPlayer4 == 41) {
+                lostTurnPlayers.player4 = 2;
+              }
+              // Comprobar posición para cambiar el turno al siguiente jugador
+              if (positionPlayer4 == 8 || positionPlayer4 == 12 || positionPlayer4 == 13 || positionPlayer4 == 5 || positionPlayer4 == 17 || positionPlayer4 == 22 || positionPlayer4 == 28 || positionPlayer4 == 48 || positionPlayer4 == 34 || positionPlayer4 == 40 || positionPlayer4 == 46 || positionPlayer4 == 51 || positionPlayer4 == 26 || positionPlayer4 == 60) {
+                clavePlayerCurrent = "jugador4";
+              } else {
+                clavePlayerCurrent = "jugador1";
+                let playersCurrentDice1 = document.getElementById("1Dice");
+                playersCurrentDice1.className = "jugadorDiceCurrent";
+                let playersCurrentDice4 = document.getElementById("4Dice");
+                playersCurrentDice4.className = "jugadorDice";
+              };
             } else {
+              lostTurnPlayers.player4--;
               clavePlayerCurrent = "jugador1";
               let playersCurrentDice1 = document.getElementById("1Dice");
               playersCurrentDice1.className = "jugadorDiceCurrent";
               let playersCurrentDice4 = document.getElementById("4Dice");
               playersCurrentDice4.className = "jugadorDice";
-            };
-          } else {
-            lostTurnPlayers.player4--;
-            clavePlayerCurrent = "jugador1";
-            let playersCurrentDice1 = document.getElementById("1Dice");
-            playersCurrentDice1.className = "jugadorDiceCurrent";
-            let playersCurrentDice4 = document.getElementById("4Dice");
-            playersCurrentDice4.className = "jugadorDice";
-            return
+              return
+            }
           }
-        }
+        });
       });
-    });
+
+    })
   });
-  numberPlayers.value = "";
+  /*  const numberPlayers = document.getElementById("jugadoresOca");
+   numberPlayers.addEventListener('input', () => );
+   numberPlayers.value = ""; */
 };
 
 
