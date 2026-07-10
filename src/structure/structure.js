@@ -62,16 +62,52 @@ export function crearEstructuraPpal() {
     game.id = e;
     appInfo.appendChild(game);
 
-    const volverAlNav = document.createElement("button");
-    volverAlNav.innerHTML = "Volver a la pantalla principal y jugar a otro juego";
-    volverAlNav.id = `${e}ReturnToNav`;
-    volverAlNav.className = `returnToNav`;
-    game.append(volverAlNav);
 
-    const title = document.createElement("h2");
+
+    if (e === "laOca") {
+      const containerVolverAndTitle = document.createElement("div");
+      containerVolverAndTitle.id = "containerVolverAndTitle";
+      game.append(containerVolverAndTitle);
+      const volverAlNav = document.createElement("button");
+      volverAlNav.innerHTML = "Volver a la pantalla principal y jugar a otro juego";
+      volverAlNav.id = `${e}ReturnToNav`;
+      volverAlNav.className = `returnToNav`;
+      containerVolverAndTitle.append(volverAlNav);
+
+      const title = document.createElement("h2");
+      title.className = `gameTitle`;
+      title.id = `${e}Title`;
+      containerVolverAndTitle.appendChild(title);
+
+
+      const ultimoGanador = document.createElement("h4");
+      ultimoGanador.id = `ultimoGanador${e}`;
+      ultimoGanador.className = "ultimosGanadores";
+      ultimoGanador.innerHTML = "El ultimo ganador ha sido...";
+      title.insertAdjacentElement("afterend", ultimoGanador);
+    } else {
+      const volverAlNav = document.createElement("button");
+      volverAlNav.innerHTML = "Volver a la pantalla principal y jugar a otro juego";
+      volverAlNav.id = `${e}ReturnToNav`;
+      volverAlNav.className = `returnToNav`;
+      game.append(volverAlNav);
+
+      const title = document.createElement("h2");
+      title.className = `gameTitle`;
+      title.id = `${e}Title`;
+      game.appendChild(title);
+
+      const ultimoGanador = document.createElement("h4");
+      ultimoGanador.id = `ultimoGanador${e}`;
+      ultimoGanador.className = "ultimosGanadores";
+      title.insertAdjacentElement("afterend", ultimoGanador);
+    }
+
+
+    /* const title = document.createElement("h2");
     title.className = `gameTitle`;
     title.id = `${e}Title`;
-    game.appendChild(title);
+    game.appendChild(title); */
 
     if (e === "memory") {
       //Crear y pintar el input para el tema del Memory
@@ -92,10 +128,7 @@ export function crearEstructuraPpal() {
       });
     };
 
-    const ultimoGanador = document.createElement("h4");
-    ultimoGanador.id = `ultimoGanador${e}`;
-    ultimoGanador.className = "ultimosGanadores";
-    title.insertAdjacentElement("afterend", ultimoGanador);
+
 
     const gameContainer = document.createElement("div");
     gameContainer.id = `${e}Container`;

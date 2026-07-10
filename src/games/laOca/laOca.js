@@ -251,10 +251,10 @@ console.log(numberPlayersLaOca);
 export function elegirNumeroJugadoresOca() {
   console.log("dentro1");
 
-  const laOcaTitle = document.getElementById("laOcaTitle");
+  const containerVolverAndTitle = document.getElementById("containerVolverAndTitle");
   const buttonPlayersContainer = document.createElement("div");
   buttonPlayersContainer.id = `buttonPlayersContainer`;
-  laOcaTitle.after(buttonPlayersContainer);
+  containerVolverAndTitle.after(buttonPlayersContainer);
   const textPlayersContainer = document.createElement("h4");
   textPlayersContainer.id = `textPlayersContainer`;
   textPlayersContainer.textContent = "Antes de empezar, elige el número de jugadores";
