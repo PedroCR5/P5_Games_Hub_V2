@@ -162,6 +162,7 @@ export function crearEstructuraPpal() {
     resetJuego.textContent = "reset";
     game.append(resetJuego);
 
+
     // Crear la estructura del modal
     const modalContainer = document.createElement('div');
     modalContainer.className = 'modalContainer';

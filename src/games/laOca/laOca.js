@@ -102,88 +102,22 @@ export const printOca = () => {
       counter++
     }
   }
-  // Pongo al final del tablero el último ganador de la Oca.
-  /*   let anteriorGanadorOca = localStorage.getItem("ganadorOca");
-    if (anteriorGanadorOca !== null) {
-      let checkUltimoGanadorOca = document.getElementById("ultimoGanadorlaOca");
-      checkUltimoGanadorOca.innerHTML = `El último ganador ha sido el ${anteriorGanadorOca}`;
-    }; */
   //Pintar el boton Reset
   const laOcaReset = document.querySelector(`#laOcaReset`);;
   laOcaReset.innerHTML = "";
   laOcaReset.textContent = "Resetea la partida aquí";
+  //document.getElementById("selectorJugadores").style.display = "flex";
 };
-//export function createImputNumberPlayers() {
-//const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
 
-/* const numberPlayers = document.createElement("input");
-numberPlayers.value = "0";
-numberPlayers.type = 'number';
-numberPlayers.min = "1";
-numberPlayers.max = "4";
-numberPlayers.id = "jugadoresOca";
-numberPlayers.placeholder = "Elije el número de jugadores entre 1 y 4";
-numberPlayers.type = "number"; */
-//laOcaPlayersDiv.append(numberPlayers);
-
-
-//}
-export function createPlayerToPlay() {
+export function createPlayerToPlay(numberPlayersIs) {
   const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
 
   const playersList = document.createElement("ul");
   playersList.id = "playerListId";
   laOcaPlayersDiv.append(playersList);
-  //const playersList = document.getElementById(`playerListId`);
-  //playersList.innerHTML = "";
 
-  //const numberPlayers = document.getElementById("jugadoresOca");
-  //!traer el valor del nº jugadores
-  const buttonsPlayers = document.querySelectorAll('.numberPlayersLaOca');
-  buttonsPlayers.forEach(button => {
-    button.addEventListener('click', function () {
-      // Obtenemos el valor del botón pulsado
-      const value = this.value;
-      console.log("Valor del botón:", value);
-    });
-  });
-  //! Pasar el valor del nº jugadores al input
-  const numberPlayers = "2";
-  let numberPlayersIs = "0";
-
-  let allPlayersLaOca = { players: "0" };
-  allPlayersLaOca = document.querySelectorAll('.numberPlayersLaOca');
-
-  allPlayersLaOca.forEach(playersClicked => {//Cuando se hace click en una carta se ejecuta todo
-    playersClicked.addEventListener('click', () => {
-      console.log("se ha pulsado un numero de jugadores");
-      console.log(`el número de jugadores es ${playersClicked.id}`);
-      numberPlayersIs = playersClicked.id;
-      console.log(numberPlayersIs);
-    })
-  });
-  //console.log(`El valor de numberPlayers.value es ${numberPlayers} `);
-  //console.log(`El valor de numberPlayersIs.value es ${numberPlayersIs} `);
-
-  //numberPlayers.value = numberPlayersIs.value;
-  //console.log(`El valor de numberPlayers.value es ${numberPlayers.value} `);
-  // console.log(`El valor de numberPlayersIs.value es ${numberPlayersIs} `);
-
-  //console.log(numberPlayersLaOca);
-  // console.log("value");
-
-
-  //numberPlayers.value = "numberPlayersLaOca";
-  //const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
-
-  if (numberPlayers.value > 4) {
-    numberPlayers.value = 4;
-  }
-  if (numberPlayers.value == 1) {
-    numberPlayers.value = 2;
-  }
-  let i = 0;
-  for (i; i < numberPlayers.value; i++) {
+  let numPlayers = parseInt(numberPlayersIs);
+  for (let i = 0; i < numPlayers; i++) {
     const playerLi = document.createElement("li");
     playerLi.id = `${i + 1}Li`;
     playerLi.className = `jugador`;
@@ -221,9 +155,7 @@ export function createPlayerToPlay() {
 
 export function moverFichaJugador(n, position, numeroAleatorio) {
   const casillaAnterior = parseInt(position) - parseInt(numeroAleatorio);
-
   const parentDivA = document.getElementById(casillaAnterior);
-
   const childDivA = document.getElementById(`ficha${n}`);
   parentDivA.removeChild(childDivA);
 
@@ -263,18 +195,7 @@ export function moverFichaJugador(n, position, numeroAleatorio) {
   return newPosition;
 };
 
-/* export function numPlayersLaOca(num) {
-  //const numero=num;
-  console.log(num);
-  const numberPlayersLaOca = num;
-  console.log(numberPlayersLaOca);
-
-} */
-console.log(numberPlayersLaOca);
-
 export function elegirNumeroJugadoresOca() {
-  //console.log("dentro1");
-
   const containerVolverAndTitle = document.getElementById("containerVolverAndTitle");
   const buttonPlayersContainer = document.createElement("div");
   buttonPlayersContainer.id = `buttonPlayersContainer`;
@@ -289,24 +210,8 @@ export function elegirNumeroJugadoresOca() {
     button.id = i; // Número de jugadores en el botón
     button.value = i;
     button.className = "numberPlayersLaOca";
-    //button.onclick = () => numPlayersLaOca(i);
     buttonPlayersContainer.appendChild(button);
   }
-
-  //Meto todos los botones de seleccionar jugadores en allPlayersLaOca
-  /*   let numberPlayersIs = "0";
-    let allPlayersLaOca = { players: "0" };
-    allPlayersLaOca = document.querySelectorAll('.numberPlayersLaOca');
-  
-    allPlayersLaOca.forEach(playersClicked => {//Cuando se hace click en una carta se ejecuta todo
-      playersClicked.addEventListener('click', () => {
-        console.log("se ha pulsado un numero de jugadores");
-        console.log(`el número de jugadores es ${playersClicked.id}`);
-        numberPlayersIs = playersClicked.id;
-        console.log(numberPlayersIs);
-      })
-    }); */
-  //console.log(`numberPlayersIs`);
 }
 
 
@@ -330,21 +235,16 @@ export function gameOca() {
   elegirNumeroJugadoresOca();
   console.log("despues");
 
-  //Hacer un input nº jugadores y luego con bucle crearlos 
-  //createImputNumberPlayers();
-  //Pintar los jugadores
-  //Meto todos los botones de seleccionar jugadores en allPlayersLaOca
   let numberPlayersIs = "0";
   let allPlayersLaOca = { players: "0" };
   allPlayersLaOca = document.querySelectorAll('.numberPlayersLaOca');
 
-  allPlayersLaOca.forEach(playersClicked => {//Cuando se hace click en una carta se ejecuta todo
+  allPlayersLaOca.forEach(playersClicked => {//Cuando se hace click en un numero de jugadores se ejecuta todo
     playersClicked.addEventListener('click', () => {
       console.log("se ha pulsado un numero de jugadores");
       console.log(`el número de jugadores es ${playersClicked.id}`);
       numberPlayersIs = playersClicked.id;
-      console.log(numberPlayersIs);
-
+      allPlayersLaOca.forEach(btn => btn.remove());
       //Si pulsamos de nuevo en número de jugadores, borramos la partida para empezar una nueva.
       const dadoAnterior = document.getElementById("dadoValor");
       if (dadoAnterior) { dadoAnterior.remove(); };
@@ -362,7 +262,7 @@ export function gameOca() {
         player1: 0, player2: 0, player3: 0, player4: 0,
       };
 
-      createPlayerToPlay();
+      createPlayerToPlay(numberPlayersIs);
 
       let playersCurrentDice = document.getElementById("1Dice");
       playersCurrentDice.className = "jugadorDice jugadorDiceCurrent";
@@ -538,9 +438,6 @@ export function gameOca() {
 
     })
   });
-  /*  const numberPlayers = document.getElementById("jugadoresOca");
-   numberPlayers.addEventListener('input', () => );
-   numberPlayers.value = ""; */
 };
 
 

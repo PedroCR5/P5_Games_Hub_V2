@@ -42,10 +42,10 @@ export function lanzarModalOca(ganador) {
 
   modalOn.style.display = "flex";
 
-  const modalButton = document.getElementById("laOacModalButton");
+  const modalButton = document.getElementById("laOcaModalButton");
   modalButton.addEventListener('click', function () {//Quito el modal al pulsar el button y reseteo el memory
     modalOn.style.display = "none";
-
+    document.getElementById("selectorJugadores").style.display = "flex";
     //gameMemory(`${nuevoTema}`);
   });
 
