@@ -445,7 +445,7 @@ export function clickResetLaOca() {// Función para resetear la oca
 
   resetLaOca.addEventListener('click', () => {
     console.log("voy a resetear La Oca");
-
+    gameOca();
   });
 };
 
