@@ -440,6 +440,13 @@ export function gameOca() {
   });
 };
 
+export function clickResetLaOca() {// Función para resetear la oca
+  const resetLaOca = document.querySelector(`#laOcaReset`);
 
+  resetLaOca.addEventListener('click', () => {
+    console.log("voy a resetear La Oca");
+
+  });
+};
 
 

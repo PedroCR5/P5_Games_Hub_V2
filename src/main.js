@@ -3,7 +3,7 @@ import { crearEstructuraPpal } from './structure/structure';
 import { selectOrReturnGame } from './games/selectGame';
 import { clickResetTresEnRaya, gameTresEnRaya } from './games/tresEnRaya/tresEnRaya';
 import { clickResetMemory, gameMemory } from './games/memory/memory';
-import { gameOca } from './games/laOca/laOca';
+import { clickResetLaOca, gameOca } from './games/laOca/laOca';
 import { pintarGanadoresTresEnRaya } from './games/checkWinners';
 
 crearEstructuraPpal()
@@ -15,6 +15,7 @@ clickResetTresEnRaya();
 
 //! Juego la Oca
 gameOca();
+clickResetLaOca();
 
 //! Juego Memory
 export const temaMemoryInicial = "dog";
