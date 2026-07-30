@@ -1,3 +1,4 @@
+import { lanzarModalOca } from '../modals';
 import './laOca.css';
 
 // Posición de salida para los 4 jugadores
@@ -75,8 +76,7 @@ export const casillasOcaTablero = [
   { id: 63, tipo: "meta" }
 ];
 
-// Pinto el tablero
-export const printOca = () => {
+export const printOca = () => {// Pinto el tablero
   const laOcaTable = document.querySelector(`#laOcaTable`);
   const arrayOca = [
     ["", "", "", "", "", "", "", "", ""],
@@ -179,16 +179,20 @@ export function moverFichaJugador(n, position, numeroAleatorio) {
 
   if (newPosition == 63) {
     if (n = 1) {
-      alert("Ha ganado el Jugador 1");
+      lanzarModalOca(1);
+      // alert("Ha ganado el Jugador 1");
       localStorage.setItem("ganadorOca", "Jugador 1");
     } else if (n = 2) {
-      alert("Ha ganado el Jugador 2");
+      lanzarModalOca(2);
+      //alert("Ha ganado el Jugador 2");
       localStorage.setItem("ganadorOca", "Jugador 2");
     } else if (n = 3) {
-      alert("Ha ganado el Jugador 3");
+      lanzarModalOca(3);
+      //            alert("Ha ganado el Jugador 3");
       localStorage.setItem("ganadorOca", "Jugador 3");
     } else if (n = 4) {
-      alert("Ha ganado el Jugador 4");
+      lanzarModalOca(4);
+      //alert("Ha ganado el Jugador 4");
       localStorage.setItem("ganadorOca", "Jugador 4");
     }
   }
@@ -212,8 +216,7 @@ export function elegirNumeroJugadoresOca() {
     button.className = "numberPlayersLaOca";
     buttonPlayersContainer.appendChild(button);
   }
-}
-
+};
 
 export function gameOca() {
   document.getElementById("laOcaTable").innerHTML = "";

@@ -1,4 +1,5 @@
 import { temaMemoryInicial } from "../main";
+import { gameOca } from "./laOca/laOca";
 import { gameMemory, nuevoTema } from "./memory/memory";
 
 export function lanzarModalMemory(ganador) {//Disparo el modal
@@ -43,10 +44,10 @@ export function lanzarModalOca(ganador) {
   modalOn.style.display = "flex";
 
   const modalButton = document.getElementById("laOcaModalButton");
-  modalButton.addEventListener('click', function () {//Quito el modal al pulsar el button y reseteo el memory
+  modalButton.addEventListener('click', function () {//Quito el modal al pulsar el button y reseteo la Oca
     modalOn.style.display = "none";
-    document.getElementById("selectorJugadores").style.display = "flex";
-    //gameMemory(`${nuevoTema}`);
+    //document.getElementById("selectorJugadores").style.display = "flex";
+    gameOca();
   });
 
   //Leo las partidas ganadas, si no estuviera declarada pone un 0 y luego incrementamos a 1.
